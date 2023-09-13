@@ -5,18 +5,26 @@
  */
 package universidadgrupo54.vistas;
 
+import universidadgrupo54.accesoDatos.AlumnoData;
+
 /**
  *
  * @author Pablo
  */
 public class Vista extends javax.swing.JFrame {
 
+    
+   
     /**
      * Creates new form Vista
      */
     public Vista() {
+        
         initComponents();
+        
     }
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -29,7 +37,7 @@ public class Vista extends javax.swing.JFrame {
 
         escritorio = new javax.swing.JDesktopPane();
         jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
+        GestionAlumnos = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         jMenuItem2 = new javax.swing.JMenuItem();
@@ -53,12 +61,22 @@ public class Vista extends javax.swing.JFrame {
             .addGap(0, 629, Short.MAX_VALUE)
         );
 
-        jMenu1.setText("Alumno");
+        GestionAlumnos.setText("Alumno");
+        GestionAlumnos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                GestionAlumnosActionPerformed(evt);
+            }
+        });
 
         jMenuItem1.setText("Formulario de alumno");
-        jMenu1.add(jMenuItem1);
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        GestionAlumnos.add(jMenuItem1);
 
-        jMenuBar1.add(jMenu1);
+        jMenuBar1.add(GestionAlumnos);
 
         jMenu2.setText("Formulario de materia");
 
@@ -103,6 +121,27 @@ public class Vista extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void GestionAlumnosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GestionAlumnosActionPerformed
+//        escritorio.removeAll();
+//        escritorio.repaint();
+//       
+//        Alumnos ventana = new Alumnos();
+//        ventana.setVisible(true);
+//        escritorio.add(ventana);
+//        escritorio.moveToFront(ventana);
+    }//GEN-LAST:event_GestionAlumnosActionPerformed
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+  
+           escritorio.removeAll();
+        escritorio.repaint();
+       
+        Alumnos ventana = new Alumnos();
+        ventana.setVisible(true);
+        escritorio.add(ventana);
+        escritorio.moveToFront(ventana);
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -139,8 +178,8 @@ public class Vista extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenu GestionAlumnos;
     private javax.swing.JDesktopPane escritorio;
-    private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
