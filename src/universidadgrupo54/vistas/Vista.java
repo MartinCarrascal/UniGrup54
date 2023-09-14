@@ -78,16 +78,16 @@ public class Vista extends javax.swing.JFrame {
 
         jMenuBar1.add(GestionAlumnos);
 
-        jMenu2.setText("Materia");
+        jMenu2.setText("Formulario de materia");
 
-        jMenuItem2.setText("Formulario de Materia");
+        jMenuItem2.setText("jMenuItem2");
         jMenu2.add(jMenuItem2);
 
         jMenuBar1.add(jMenu2);
 
         jMenu3.setText("Administracion");
 
-        jMenuItem3.setText("Manejo de inscripciones");
+        jMenuItem3.setText("Manejo de inscripcion");
         jMenu3.add(jMenuItem3);
 
         jMenuItem4.setText("Manipulacion de notas");
@@ -136,7 +136,7 @@ public class Vista extends javax.swing.JFrame {
            escritorio.removeAll();
         escritorio.repaint();
        
-        FormAlumnos ventana = new FormAlumnos();
+        Alumnos ventana = new Alumnos();
         ventana.setVisible(true);
         escritorio.add(ventana);
         escritorio.moveToFront(ventana);
