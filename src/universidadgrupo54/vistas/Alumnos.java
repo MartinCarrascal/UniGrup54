@@ -6,7 +6,9 @@
 package universidadgrupo54.vistas;
 
 import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.Date;
+import javax.swing.JInternalFrame;
 import universidadgrupo54.accesoDatos.AlumnoData;
 import universidadgrupo54.entidades.Alumno;
 
@@ -15,15 +17,16 @@ import universidadgrupo54.entidades.Alumno;
  * @author Pablo
  */
 public class Alumnos extends javax.swing.JInternalFrame {
-    
 
-    /**
-     * Creates new form Alumnos
-     */
+    private boolean esNuevo;
     public Alumnos() {
         initComponents();
     }
-
+   
+    AlumnoData aluD = new AlumnoData();
+    Alumno alum = new Alumno();
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -33,13 +36,7 @@ public class Alumnos extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jTextField4 = new javax.swing.JTextField();
-        jCalendar1 = new com.toedter.calendar.JCalendar();
-        jCalendar2 = new com.toedter.calendar.JCalendar();
-        jDayChooser1 = new com.toedter.calendar.JDayChooser();
-        jCalendar3 = new com.toedter.calendar.JCalendar();
-        jDayChooser2 = new com.toedter.calendar.JDayChooser();
+        jTId = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -57,9 +54,7 @@ public class Alumnos extends javax.swing.JInternalFrame {
         jBSalir = new javax.swing.JButton();
         jBBuscar = new javax.swing.JButton();
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        jTextField4.setText("jTextField4");
+        jTId.setText("jTextField1");
 
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         jLabel1.setText("Alumnos");
@@ -79,6 +74,19 @@ public class Alumnos extends javax.swing.JInternalFrame {
         jLabel6.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel6.setText("Fecha de nacimiento");
 
+        jTApellido.setEnabled(false);
+
+        jTNombre.setEnabled(false);
+
+        jDFechaNacimiento.setEnabled(false);
+        jDFechaNacimiento.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                jDFechaNacimientoPropertyChange(evt);
+            }
+        });
+
+        jREstado.setEnabled(false);
+
         jbNuevo.setText("Nuevo");
         jbNuevo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -87,8 +95,15 @@ public class Alumnos extends javax.swing.JInternalFrame {
         });
 
         jBEliminar.setText("Eliminar");
+        jBEliminar.setEnabled(false);
+        jBEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBEliminarActionPerformed(evt);
+            }
+        });
 
         jBGuardar.setText("Guardar");
+        jBGuardar.setEnabled(false);
         jBGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBGuardarActionPerformed(evt);
@@ -96,8 +111,18 @@ public class Alumnos extends javax.swing.JInternalFrame {
         });
 
         jBSalir.setText("Salir");
+        jBSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBSalirActionPerformed(evt);
+            }
+        });
 
         jBBuscar.setText("Buscar");
+        jBBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBBuscarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -177,38 +202,83 @@ public class Alumnos extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jbNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbNuevoActionPerformed
-
+       jtDocumento.setEnabled(true);
+       jTNombre.setEnabled(true);
+       jTApellido.setEnabled(true);
+       jDFechaNacimiento.setEnabled(true);
+       esNuevo = true;
+       jREstado.setEnabled(true);
+       jBGuardar.setEnabled(true);
+       
     }//GEN-LAST:event_jbNuevoActionPerformed
 
     private void jBGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBGuardarActionPerformed
-      
+        int iDAlu = Integer.parseInt(jTId.getText());
         int dni = Integer.parseInt(jtDocumento.getText());
         String nombre = jTNombre.getText();
         String apellido = jTApellido.getText();
-       
+        LocalDate fechaNueva = jDFechaNacimiento.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
         Date fechaNacimiento = jDFechaNacimiento.getDate();
-     //   Alumno jose = new Alumno(dni, apellido, nombre, , true);
-        AlumnoData alu = new AlumnoData();
-     //   alu.guardarAlumno(jose);
-       
-        
-        
+        if (esNuevo ) {
+            Alumno alum = new Alumno(dni, apellido, nombre, fechaNueva, true);
+        aluD.guardarAlumno(alum);
+      
+        }else{
+        Alumno alum = new Alumno(iDAlu,dni, apellido, nombre, fechaNueva, true);
+         aluD.modificarAlumno(alum);
+         
+        }
+          jtDocumento.setText("");
+        jTApellido.setText("");
+        jTNombre.setText("");
+        jREstado.setSelected(false);
+        jDFechaNacimiento.cleanup();
     }//GEN-LAST:event_jBGuardarActionPerformed
 
-    
+    private void jDFechaNacimientoPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jDFechaNacimientoPropertyChange
+      //elimnar metodo
+    }//GEN-LAST:event_jDFechaNacimientoPropertyChange
+
+    private void jBBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBBuscarActionPerformed
+        esNuevo = false;
+        int documento = Integer.parseInt(jtDocumento.getText());
+       
+      Alumno alu = aluD.buscarAlumnoPorDni(documento); 
+      jTId.setText("" +alu.getIdAlumno() );
+      jTApellido.setEnabled(true);
+      jTNombre.setEnabled(true);
+      jDFechaNacimiento.setEnabled(true);
+      
+      jREstado.setEnabled(true);
+      jTApellido.setText(alu.getApellido());
+      jTNombre.setText(alu.getNombre());
+      
+      jBEliminar.setEnabled(true);
+      jREstado.setSelected(alu.isEstado());
+      jDFechaNacimiento.setDate(Date.from(alu.getFechaNacimiento().atStartOfDay(ZoneId.systemDefault()).toInstant()));
+      jBGuardar.setEnabled(true);
+    }//GEN-LAST:event_jBBuscarActionPerformed
+
+    private void jBEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBEliminarActionPerformed
+   
+        int documento = Integer.parseInt(jtDocumento.getText());
+         Alumno al = aluD.buscarAlumnoPorDni(documento); 
+      
+         int idAlu = al.getIdAlumno();
+         aluD.eliminarAlumno(idAlu);
+    }//GEN-LAST:event_jBEliminarActionPerformed
+
+    private void jBSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBSalirActionPerformed
+       dispose();
+    }//GEN-LAST:event_jBSalirActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBBuscar;
     private javax.swing.JButton jBEliminar;
     private javax.swing.JButton jBGuardar;
     private javax.swing.JButton jBSalir;
-    private com.toedter.calendar.JCalendar jCalendar1;
-    private com.toedter.calendar.JCalendar jCalendar2;
-    private com.toedter.calendar.JCalendar jCalendar3;
-    private javax.swing.JComboBox<String> jComboBox1;
     private com.toedter.calendar.JDateChooser jDFechaNacimiento;
-    private com.toedter.calendar.JDayChooser jDayChooser1;
-    private com.toedter.calendar.JDayChooser jDayChooser2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -217,8 +287,8 @@ public class Alumnos extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JRadioButton jREstado;
     private javax.swing.JTextField jTApellido;
+    private javax.swing.JTextField jTId;
     private javax.swing.JTextField jTNombre;
-    private javax.swing.JTextField jTextField4;
     private javax.swing.JButton jbNuevo;
     private javax.swing.JTextField jtDocumento;
     // End of variables declaration//GEN-END:variables
