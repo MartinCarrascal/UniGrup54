@@ -183,6 +183,10 @@ public class Materias extends javax.swing.JInternalFrame {
         jTNombreMat.setEnabled(true);
         jREstadoMat.setEnabled(true);
         jBGuardarMat.setEnabled(true);
+        jTAnio.setText("");
+        jTCodigo.setText("");
+        jTNombreMat.setText("");
+        jREstadoMat.setSelected(true);
     }//GEN-LAST:event_jBNuevoMatActionPerformed
 
 
