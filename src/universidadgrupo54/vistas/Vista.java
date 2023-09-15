@@ -89,6 +89,11 @@ public class Vista extends javax.swing.JFrame {
         jMenu3.setText("Administracion");
 
         jMenuItem3.setText("Manejo de inscripcion");
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem3ActionPerformed(evt);
+            }
+        });
         jMenu3.add(jMenuItem3);
 
         jMenuItem4.setText("Manipulacion de notas");
@@ -151,6 +156,10 @@ public class Vista extends javax.swing.JFrame {
         escritorio.add(ventanaMat);
         escritorio.moveToFront(ventanaMat);
     }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     /**
      * @param args the command line arguments
