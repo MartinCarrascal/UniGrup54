@@ -21,10 +21,11 @@ public class Materias extends javax.swing.JInternalFrame {
     public Materias() {
         initComponents();
     }
-    
+
     Materia mat = new Materia();
     MateriaData matD = new MateriaData();
-    
+    boolean banderaModificar = false;
+
     private void mensaje(String mensaje) {
         JOptionPane.showConfirmDialog(null, mensaje);
     }
@@ -86,6 +87,11 @@ public class Materias extends javax.swing.JInternalFrame {
 
         jBEliminarMat.setText("Eliminar");
         jBEliminarMat.setEnabled(false);
+        jBEliminarMat.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBEliminarMatActionPerformed(evt);
+            }
+        });
 
         jBGuardarMat.setText("Guardar");
         jBGuardarMat.setEnabled(false);
@@ -96,6 +102,11 @@ public class Materias extends javax.swing.JInternalFrame {
         });
 
         jBSalirMat.setText("Salir");
+        jBSalirMat.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBSalirMatActionPerformed(evt);
+            }
+        });
 
         jBBuscarMat.setText("Buscar");
         jBBuscarMat.addActionListener(new java.awt.event.ActionListener() {
@@ -185,7 +196,11 @@ public class Materias extends javax.swing.JInternalFrame {
         jTAnio.setEnabled(true);
         jREstadoMat.setEnabled(true);
         jTNombreMat.setText(mat.getNombre());
-        jTAnio.setText(mat.getAnio()+ " " );
+        jTAnio.setText(mat.getAnio() + " ");
+        boolean banderaModificar = true;
+        jREstadoMat.setSelected(true);
+        jBGuardarMat.setEnabled(true);
+        jBEliminarMat.setEnabled(true);
     }//GEN-LAST:event_jBBuscarMatActionPerformed
 
     private void jBNuevoMatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBNuevoMatActionPerformed
@@ -198,21 +213,41 @@ public class Materias extends javax.swing.JInternalFrame {
         jTCodigo.setText("");
         jTNombreMat.setText("");
         jREstadoMat.setSelected(true);
+
+
     }//GEN-LAST:event_jBNuevoMatActionPerformed
 
     private void jBGuardarMatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBGuardarMatActionPerformed
-           jREstadoMat.setSelected(false);
-          
-           
+        jREstadoMat.setSelected(false);
+
         if (mat.getNombre() == jTNombreMat.getText()) {
             mensaje("Esa materia ya existe");
-        }else{
+        } else if (banderaModificar) {
+
+            String nombre = jTNombreMat.getText();
+            int anio = Integer.parseInt(jTAnio.getText());
+            Materia mat = new Materia(nombre, anio, true);
+            matD.modificarMateria(mat);
+        } else {
             String nombre = jTNombreMat.getText();
             int anio = Integer.parseInt(jTAnio.getText());
             Materia mat = new Materia(nombre, anio, true);
             matD.guardarMateria(mat);
         }
     }//GEN-LAST:event_jBGuardarMatActionPerformed
+
+    private void jBEliminarMatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBEliminarMatActionPerformed
+        int idMateria = Integer.parseInt(jTCodigo.getText());
+        matD.eliminarMateria(idMateria);
+        jTAnio.setText("");
+        jTCodigo.setText("");
+        jTNombreMat.setText("");
+        jREstadoMat.setSelected(false);
+    }//GEN-LAST:event_jBEliminarMatActionPerformed
+
+    private void jBSalirMatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBSalirMatActionPerformed
+        dispose();
+    }//GEN-LAST:event_jBSalirMatActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
