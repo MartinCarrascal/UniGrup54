@@ -17,6 +17,7 @@ public class Inscripcion extends javax.swing.JInternalFrame {
     public Inscripcion() {
         initComponents();
     }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -167,6 +168,7 @@ public class Inscripcion extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jCBSelecAlumnoActionPerformed
 
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroup1;

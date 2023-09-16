@@ -5,6 +5,7 @@
  */
 package universidadgrupo54.vistas;
 
+import javax.swing.JOptionPane;
 import universidadgrupo54.accesoDatos.MateriaData;
 import universidadgrupo54.entidades.Materia;
 
@@ -23,6 +24,10 @@ public class Materias extends javax.swing.JInternalFrame {
     
     Materia mat = new Materia();
     MateriaData matD = new MateriaData();
+    
+    private void mensaje(String mensaje) {
+        JOptionPane.showConfirmDialog(null, mensaje);
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -84,6 +89,11 @@ public class Materias extends javax.swing.JInternalFrame {
 
         jBGuardarMat.setText("Guardar");
         jBGuardarMat.setEnabled(false);
+        jBGuardarMat.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBGuardarMatActionPerformed(evt);
+            }
+        });
 
         jBSalirMat.setText("Salir");
 
@@ -179,6 +189,7 @@ public class Materias extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jBBuscarMatActionPerformed
 
     private void jBNuevoMatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBNuevoMatActionPerformed
+        jTCodigo.setEnabled(false);
         jTAnio.setEnabled(true);
         jTNombreMat.setEnabled(true);
         jREstadoMat.setEnabled(true);
@@ -188,6 +199,20 @@ public class Materias extends javax.swing.JInternalFrame {
         jTNombreMat.setText("");
         jREstadoMat.setSelected(true);
     }//GEN-LAST:event_jBNuevoMatActionPerformed
+
+    private void jBGuardarMatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBGuardarMatActionPerformed
+           jREstadoMat.setSelected(false);
+          
+           
+        if (mat.getNombre() == jTNombreMat.getText()) {
+            mensaje("Esa materia ya existe");
+        }else{
+            String nombre = jTNombreMat.getText();
+            int anio = Integer.parseInt(jTAnio.getText());
+            Materia mat = new Materia(nombre, anio, true);
+            matD.guardarMateria(mat);
+        }
+    }//GEN-LAST:event_jBGuardarMatActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
