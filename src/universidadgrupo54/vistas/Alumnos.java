@@ -213,7 +213,8 @@ public class Alumnos extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jbNuevoActionPerformed
 
     private void jBGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBGuardarActionPerformed
-        int iDAlu = Integer.parseInt(jTId.getText());
+       // int iDAlu = Integer.parseInt(jTId.getText());
+        
         int dni = Integer.parseInt(jtDocumento.getText());
         String nombre = jTNombre.getText();
         String apellido = jTApellido.getText();
@@ -224,7 +225,7 @@ public class Alumnos extends javax.swing.JInternalFrame {
         aluD.guardarAlumno(alum);
       
         }else{
-        Alumno alum = new Alumno(iDAlu,dni, apellido, nombre, fechaNueva, true);
+        Alumno alum = new Alumno(dni, apellido, nombre, fechaNueva, true);
          aluD.modificarAlumno(alum);
          
         }
@@ -244,7 +245,7 @@ public class Alumnos extends javax.swing.JInternalFrame {
         int documento = Integer.parseInt(jtDocumento.getText());
        
       Alumno alu = aluD.buscarAlumnoPorDni(documento); 
-      jTId.setText("" +alu.getIdAlumno() );
+     // jTId.setText("" +alu.getIdAlumno() );
       jTApellido.setEnabled(true);
       jTNombre.setEnabled(true);
       jDFechaNacimiento.setEnabled(true);
