@@ -6,10 +6,16 @@
 package universidadgrupo54.accesoDatos;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import universidadgrupo54.entidades.Alumno;
+import universidadgrupo54.entidades.Materia;
 
 /**
  *
@@ -29,8 +35,42 @@ public class InscripcionData {
         }
     }
     
-    Alumno alumno = new Alumno();
+    private void mensaje(String mensaje) {
+        JOptionPane.showConfirmDialog(null, mensaje);
+    }
+    
+    
     AlumnoData alumD = new AlumnoData();
+    MateriaData matD = new MateriaData();
+   
+    
+    public List<Materia> obtenerMateriasCursadas(int id) {
+        List<Materia> materias = new ArrayList<>();
+        
+        String sql = "SELECT inscripcionSelect.idMateria, nombre, anio FROM inscripcion,"
+                + "materia WHERE inscripcion.idMateria = materia.idMateria \n "
+                + "AND inscripcion.idAlumno =?;";
+        
+        try {
+            PreparedStatement ps = connection.prepareStatement(sql);
+            ps.setInt(1, id);
+            ResultSet rs = ps.executeQuery();
+            Materia materia;
+            
+            while (rs.next()) {                
+                materia = new Materia();
+                materia.setIdMateria(rs.getInt("idMateria"));
+                materia.setNombre(rs.getString("nombre"));
+                materia.setAnio(rs.getInt("anio"));
+                materias.add(materia);
+            }
+            ps.close();
+            
+        } catch (SQLException e) {
+            mensaje("Error al obtener inscripciones " + e.getMessage() );
+        }
+        return materias;
+    }
     
     
     
