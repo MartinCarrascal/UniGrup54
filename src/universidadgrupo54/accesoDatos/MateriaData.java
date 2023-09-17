@@ -15,7 +15,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-import universidadgrupo54.entidades.Materia_Entidades;
+import universidadgrupo54.entidades.MateriaEntidades;
 
 /**
  *
@@ -39,7 +39,7 @@ public class MateriaData {
         JOptionPane.showConfirmDialog(null, mensaje);
     }
      
-     public void guardarMateria(Materia_Entidades materia) {
+     public void guardarMateria(MateriaEntidades materia) {
          
          String sql = "INSERT INTO materia(nombre, anio, estado) VALUES (?,?,?)";
          
@@ -62,8 +62,8 @@ public class MateriaData {
         }
     }
      
-     public Materia_Entidades buscarMateria(int id) {
-         Materia_Entidades materia = null;
+     public MateriaEntidades buscarMateria(int id) {
+         MateriaEntidades materia = null;
          String sql = "SELECT nombre, anio FROM materia WHERE idMateria = ? AND estado = 1";
          PreparedStatement ps = null;
          try {
@@ -72,7 +72,7 @@ public class MateriaData {
              ResultSet rs = ps.executeQuery();
              
              if (rs.next()) {
-                 materia = new Materia_Entidades();
+                 materia = new MateriaEntidades();
                  materia.setIdMateria(id);
                  materia.setNombre(rs.getNString("nombre"));
                  materia.setAnio(rs.getInt("anio"));
@@ -87,7 +87,7 @@ public class MateriaData {
          return materia;
      }
      
-    public void modificarMateria(Materia_Entidades materia) {
+    public void modificarMateria(MateriaEntidades materia) {
         //Para modificar agregar al objeto materia el idMateria correspondiente y
         //pasarselo por parametro al metodo
        
@@ -129,14 +129,14 @@ public class MateriaData {
         }
     }
     
-    public List<Materia_Entidades> listarMateria() {
+    public List<MateriaEntidades> listarMateria() {
         
-        List<Materia_Entidades> lista = new ArrayList<>();
+        List<MateriaEntidades> lista = new ArrayList<>();
         String sql = "SELECT * FROM materia WHERE estado = 1 ";
         
         try(PreparedStatement ps = connection.prepareStatement(sql); ResultSet rs = ps.executeQuery()) {
             while (rs.next()) {  
-                Materia_Entidades materia = new Materia_Entidades();
+                MateriaEntidades materia = new MateriaEntidades();
                 materia.setIdMateria(rs.getInt("idMateria"));
                 materia.setNombre(rs.getString("nombre"));
                 materia.setAnio(rs.getInt("anio"));

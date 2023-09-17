@@ -9,17 +9,17 @@ package universidadgrupo54.entidades;
  *
  * @author Pablo
  */
-public class Materia_Entidades {
+public class MateriaEntidades {
     
       private int idMateria;
     private String nombre;
     private int anio;
     private boolean estado;
 
-    public Materia_Entidades() {
+    public MateriaEntidades() {
     }
 
-    public Materia_Entidades(String nombre, int anio, boolean estado) {
+    public MateriaEntidades(String nombre, int anio, boolean estado) {
         this.nombre = nombre;
         this.anio = anio;
         this.estado = estado;
@@ -27,7 +27,7 @@ public class Materia_Entidades {
     
     
 
-    public Materia_Entidades(int idMateria, String nombre, int anio, boolean estado) {
+    public MateriaEntidades(int idMateria, String nombre, int anio, boolean estado) {
         this.idMateria = idMateria;
         this.nombre = nombre;
         this.anio = anio;

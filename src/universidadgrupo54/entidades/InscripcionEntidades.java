@@ -9,24 +9,24 @@ package universidadgrupo54.entidades;
  *
  * @author Pablo
  */
-public class Inscripcion_Entidades {
+public class InscripcionEntidades {
     
      
     private int idInscripto;
     private AlumnoEntidades alumno;
-    private Materia_Entidades materia;
+    private MateriaEntidades materia;
     private int nota;
 
-    public Inscripcion_Entidades() {
+    public InscripcionEntidades() {
     }
 
-    public Inscripcion_Entidades(AlumnoEntidades alumno, Materia_Entidades materia, int nota) {
+    public InscripcionEntidades(AlumnoEntidades alumno, MateriaEntidades materia, int nota) {
         this.alumno = alumno;
         this.materia = materia;
         this.nota = nota;
     }
 
-    public Inscripcion_Entidades(int idInscripto, AlumnoEntidades alumno, Materia_Entidades materia, int nota) {
+    public InscripcionEntidades(int idInscripto, AlumnoEntidades alumno, MateriaEntidades materia, int nota) {
         this.idInscripto = idInscripto;
         this.alumno = alumno;
         this.materia = materia;
@@ -49,11 +49,11 @@ public class Inscripcion_Entidades {
         this.alumno = alumno;
     }
 
-    public Materia_Entidades getMateria() {
+    public MateriaEntidades getMateria() {
         return materia;
     }
 
-    public void setMateria(Materia_Entidades materia) {
+    public void setMateria(MateriaEntidades materia) {
         this.materia = materia;
     }
 

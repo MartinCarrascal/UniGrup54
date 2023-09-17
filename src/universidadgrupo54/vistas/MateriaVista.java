@@ -7,22 +7,22 @@ package universidadgrupo54.vistas;
 
 import javax.swing.JOptionPane;
 import universidadgrupo54.accesoDatos.MateriaData;
-import universidadgrupo54.entidades.Materia_Entidades;
+import universidadgrupo54.entidades.MateriaEntidades;
 
 /**
  *
  * @author Pablo
  */
-public class Materias_Vista extends javax.swing.JInternalFrame {
+public class MateriaVista extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form Materias
      */
-    public Materias_Vista() {
+    public MateriaVista() {
         initComponents();
     }
 
-    Materia_Entidades mat = new Materia_Entidades();
+    MateriaEntidades mat = new MateriaEntidades();
     MateriaData matD = new MateriaData();
     boolean banderaModificar = false;
 
@@ -191,7 +191,7 @@ public class Materias_Vista extends javax.swing.JInternalFrame {
 
     private void jBBuscarMatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBBuscarMatActionPerformed
         int codigo = Integer.parseInt(jTCodigo.getText());
-        Materia_Entidades mat = matD.buscarMateria(codigo);
+        MateriaEntidades mat = matD.buscarMateria(codigo);
         jTNombreMat.setEnabled(true);
         jTAnio.setEnabled(true);
         jREstadoMat.setEnabled(true);
@@ -226,12 +226,12 @@ public class Materias_Vista extends javax.swing.JInternalFrame {
 
             String nombre = jTNombreMat.getText();
             int anio = Integer.parseInt(jTAnio.getText());
-            Materia_Entidades mat = new Materia_Entidades(nombre, anio, true);
+            MateriaEntidades mat = new MateriaEntidades(nombre, anio, true);
             matD.modificarMateria(mat);
         } else {
             String nombre = jTNombreMat.getText();
             int anio = Integer.parseInt(jTAnio.getText());
-            Materia_Entidades mat = new Materia_Entidades(nombre, anio, true);
+            MateriaEntidades mat = new MateriaEntidades(nombre, anio, true);
             matD.guardarMateria(mat);
         }
     }//GEN-LAST:event_jBGuardarMatActionPerformed

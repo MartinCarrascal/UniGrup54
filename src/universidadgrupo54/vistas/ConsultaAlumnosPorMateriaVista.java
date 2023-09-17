@@ -9,12 +9,12 @@ package universidadgrupo54.vistas;
  *
  * @author Ideapad 5
  */
-public class Consulta_Alumnos_por_Materia_Vista extends javax.swing.JInternalFrame {
+public class ConsultaAlumnosPorMateriaVista extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form Consulta_Alumnos_por_Materia
      */
-    public Consulta_Alumnos_por_Materia_Vista() {
+    public ConsultaAlumnosPorMateriaVista() {
         initComponents();
     }
 

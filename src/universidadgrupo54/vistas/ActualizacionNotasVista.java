@@ -5,17 +5,26 @@
  */
 package universidadgrupo54.vistas;
 
+
+import universidadgrupo54.accesoDatos.AlumnoData;
+import universidadgrupo54.accesoDatos.InscripcionData;
+
+
 /**
  *
  * @author Ideapad 5
  */
-public class Actualizacion_Datos_Vista extends javax.swing.JInternalFrame {
+public class ActualizacionNotasVista extends javax.swing.JInternalFrame {
 
+    InscripcionData inData=new InscripcionData();
+    AlumnoData aluD=new AlumnoData();
+    
     /**
      * Creates new form Actualizacion_Datos
      */
-    public Actualizacion_Datos_Vista() {
+    public ActualizacionNotasVista() {
         initComponents();
+        cargarCombo();
     }
 
     /**
@@ -31,7 +40,7 @@ public class Actualizacion_Datos_Vista extends javax.swing.JInternalFrame {
         jLabel2 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        jCBSelecAlum = new javax.swing.JComboBox<>();
+        jcBSelecAlum = new javax.swing.JComboBox<>();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
 
@@ -52,8 +61,6 @@ public class Actualizacion_Datos_Vista extends javax.swing.JInternalFrame {
             }
         ));
         jScrollPane1.setViewportView(jTable1);
-
-        jCBSelecAlum.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jButton1.setText("Guardar");
 
@@ -79,7 +86,7 @@ public class Actualizacion_Datos_Vista extends javax.swing.JInternalFrame {
                                 .addGap(96, 96, 96)
                                 .addComponent(jLabel2)
                                 .addGap(47, 47, 47)
-                                .addComponent(jCBSelecAlum, javax.swing.GroupLayout.PREFERRED_SIZE, 336, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jcBSelecAlum, javax.swing.GroupLayout.PREFERRED_SIZE, 336, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                 .addGap(81, 81, 81)
                                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 507, javax.swing.GroupLayout.PREFERRED_SIZE)))))
@@ -93,7 +100,7 @@ public class Actualizacion_Datos_Vista extends javax.swing.JInternalFrame {
                 .addGap(58, 58, 58)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jCBSelecAlum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jcBSelecAlum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(67, 67, 67)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 86, Short.MAX_VALUE)
@@ -110,10 +117,16 @@ public class Actualizacion_Datos_Vista extends javax.swing.JInternalFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JComboBox<String> jCBSelecAlum;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
+    private javax.swing.JComboBox<AlumnoData> jcBSelecAlum;
     // End of variables declaration//GEN-END:variables
+
+public void cargarCombo(){
+   String sql = "SELECT * FROM alumno WHERE estado = 1 ";
+  jcBSelecAlum.addItem(aluD);
+}
+
 }
