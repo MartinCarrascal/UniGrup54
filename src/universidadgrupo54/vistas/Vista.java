@@ -41,7 +41,7 @@ public class Vista extends javax.swing.JFrame {
         jManejoInscripcion = new javax.swing.JMenuItem();
         jActualizacionNotas = new javax.swing.JMenuItem();
         jConsultaAlumMateria = new javax.swing.JMenu();
-        jMenuItem5 = new javax.swing.JMenuItem();
+        jMConsAlumMat = new javax.swing.JMenuItem();
         jMenu5 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -113,17 +113,22 @@ public class Vista extends javax.swing.JFrame {
             }
         });
 
-        jMenuItem5.setText("Alumnos por materia");
-        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
+        jMConsAlumMat.setText("Alumnos por materia");
+        jMConsAlumMat.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem5ActionPerformed(evt);
+                jMConsAlumMatActionPerformed(evt);
             }
         });
-        jConsultaAlumMateria.add(jMenuItem5);
+        jConsultaAlumMateria.add(jMConsAlumMat);
 
         jMenuBar1.add(jConsultaAlumMateria);
 
         jMenu5.setText("Salir");
+        jMenu5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenu5ActionPerformed(evt);
+            }
+        });
         jMenuBar1.add(jMenu5);
 
         setJMenuBar(jMenuBar1);
@@ -184,25 +189,29 @@ public class Vista extends javax.swing.JFrame {
     private void jActualizacionNotasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jActualizacionNotasActionPerformed
         escritorio.removeAll();
         escritorio.repaint();
-        ActualizacionNotasVista actNot=new ActualizacionNotasVista();
+        ActualizacionNotasVista actNot = new ActualizacionNotasVista();
         actNot.setVisible(true);
         escritorio.add(actNot);
         escritorio.moveToFront(actNot);
     }//GEN-LAST:event_jActualizacionNotasActionPerformed
 
-    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
+    private void jMConsAlumMatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMConsAlumMatActionPerformed
         escritorio.removeAll();
         escritorio.repaint();
         ConsultaAlumnosPorMateriaVista conAluMat = new ConsultaAlumnosPorMateriaVista();
         conAluMat.setVisible(true);
         escritorio.add(conAluMat);
         escritorio.moveToFront(conAluMat);
-    }//GEN-LAST:event_jMenuItem5ActionPerformed
+    }//GEN-LAST:event_jMConsAlumMatActionPerformed
 
     private void jConsultaAlumMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jConsultaAlumMateriaActionPerformed
-      
+     // eliminar este action
 
     }//GEN-LAST:event_jConsultaAlumMateriaActionPerformed
+
+    private void jMenu5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu5ActionPerformed
+    // ver como salir desde este boton  
+    }//GEN-LAST:event_jMenu5ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -245,12 +254,12 @@ public class Vista extends javax.swing.JFrame {
     private javax.swing.JDesktopPane escritorio;
     private javax.swing.JMenuItem jActualizacionNotas;
     private javax.swing.JMenu jConsultaAlumMateria;
+    private javax.swing.JMenuItem jMConsAlumMat;
     private javax.swing.JMenuItem jMMateria;
     private javax.swing.JMenuItem jManejoInscripcion;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem5;
     // End of variables declaration//GEN-END:variables
 }
