@@ -14,8 +14,8 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-import universidadgrupo54.entidades.Alumno;
-import universidadgrupo54.entidades.Materia;
+import universidadgrupo54.entidades.AlumnoEntidades;
+import universidadgrupo54.entidades.Materia_Entidades;
 
 /**
  *
@@ -44,10 +44,10 @@ public class InscripcionData {
     MateriaData matD = new MateriaData();
    
     
-    public List<Materia> obtenerMateriasCursadas(int id) {
-        List<Materia> materias = new ArrayList<>();
+    public List<Materia_Entidades> obtenerMateriasCursadas(int id) {
+        List<Materia_Entidades> materias = new ArrayList<>();
         
-        String sql = "SELECT inscripcionSelect.idMateria, nombre, anio FROM inscripcion,"
+        String sql = "SELECT inscripcion.idMateria, nombre, anio FROM inscripcion,"
                 + "materia WHERE inscripcion.idMateria = materia.idMateria \n "
                 + "AND inscripcion.idAlumno =?;";
         
@@ -55,10 +55,10 @@ public class InscripcionData {
             PreparedStatement ps = connection.prepareStatement(sql);
             ps.setInt(1, id);
             ResultSet rs = ps.executeQuery();
-            Materia materia;
+            Materia_Entidades materia;
             
             while (rs.next()) {                
-                materia = new Materia();
+                materia = new Materia_Entidades();
                 materia.setIdMateria(rs.getInt("idMateria"));
                 materia.setNombre(rs.getString("nombre"));
                 materia.setAnio(rs.getInt("anio"));

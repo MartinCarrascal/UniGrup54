@@ -9,12 +9,12 @@ package universidadgrupo54.vistas;
  *
  * @author Ideapad 5
  */
-public class Actualizacion_Datos extends javax.swing.JInternalFrame {
+public class Actualizacion_Datos_Vista extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form Actualizacion_Datos
      */
-    public Actualizacion_Datos() {
+    public Actualizacion_Datos_Vista() {
         initComponents();
     }
 

@@ -17,7 +17,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-import universidadgrupo54.entidades.Alumno;
+import universidadgrupo54.entidades.AlumnoEntidades;
 
 /**
  *
@@ -42,7 +42,7 @@ public class AlumnoData {
         JOptionPane.showConfirmDialog(null, mensaje);
     }
 
-    public void guardarAlumno(Alumno alumno) {
+    public void guardarAlumno(AlumnoEntidades alumno) {
 
         String sql = "INSERT INTO alumno (dni, apellido, nombre, fechaNacimiento, estado) VALUES (?, ?, ?, ?, ?)";
 
@@ -66,9 +66,9 @@ public class AlumnoData {
 
     }
 
-    public Alumno buscarAlumno(int id) {
+    public AlumnoEntidades buscarAlumno(int id) {
 
-        Alumno alumno = null;
+        AlumnoEntidades alumno = null;
         String sql = "SELECT dni, apellido, nombre, fechaNacimiento FROM alumno WHERE idAlumno = ? AND estado = 1";
         PreparedStatement ps = null;
         try {
@@ -77,7 +77,7 @@ public class AlumnoData {
             ResultSet rs = ps.executeQuery();
 
             if (rs.next()) {
-                alumno = new Alumno();
+                alumno = new AlumnoEntidades();
                 alumno.setIdAlumno(id);
                 alumno.setDni(rs.getInt("dni"));
                 alumno.setApellido(rs.getString("apellido"));
@@ -95,9 +95,9 @@ public class AlumnoData {
         return alumno;
     }
 
-    public Alumno buscarAlumnoPorDni(int dni) {
+    public AlumnoEntidades buscarAlumnoPorDni(int dni) {
 
-        Alumno alumno = null;
+        AlumnoEntidades alumno = null;
         String sql = "SELECT idAlumno, dni, apellido, nombre, fechaNacimiento, estado FROM alumno WHERE dni = ? AND estado = 1";
         PreparedStatement ps = null;
         try {
@@ -106,7 +106,7 @@ public class AlumnoData {
             ResultSet rs = ps.executeQuery();
 
             if (rs.next()) {
-                alumno = new Alumno();
+                alumno = new AlumnoEntidades();
                 alumno.setIdAlumno(rs.getInt("idAlumno"));
                 alumno.setDni(dni);
                 alumno.setApellido(rs.getString("apellido"));
@@ -124,14 +124,14 @@ public class AlumnoData {
         return alumno;
     }
 
-    public List<Alumno> listarAlumnos() {
+    public List<AlumnoEntidades> listarAlumnos() {
 
-        List<Alumno> alumnos = new ArrayList<>();
+        List<AlumnoEntidades> alumnos = new ArrayList<>();
         String sql = "SELECT * FROM alumno WHERE estado = 1 ";
 
         try (PreparedStatement ps = connection.prepareStatement(sql); ResultSet rs = ps.executeQuery()) {
             while (rs.next()) {
-                Alumno alumno = new Alumno();
+                AlumnoEntidades alumno = new AlumnoEntidades();
 
                 alumno.setIdAlumno(rs.getInt("idAlumno"));
                 alumno.setDni(rs.getInt("dni"));
@@ -148,7 +148,7 @@ public class AlumnoData {
         return alumnos;
     }
 
-    public void modificarAlumno(Alumno alumno) {
+    public void modificarAlumno(AlumnoEntidades alumno) {
         //Para modificar poner en el constructor del main el id y modificas el campo que quieras cambiar
         //despues llamas al metodo y le pasa el alumno que creaste
 

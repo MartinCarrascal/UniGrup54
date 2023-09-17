@@ -9,12 +9,12 @@ package universidadgrupo54.vistas;
  *
  * @author Ideapad 5
  */
-public class Inscripcion extends javax.swing.JInternalFrame {
+public class InscripcionVista extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form Inscripcion
      */
-    public Inscripcion() {
+    public InscripcionVista() {
         initComponents();
     }
     

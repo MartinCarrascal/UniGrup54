@@ -142,7 +142,7 @@ public class Vista extends javax.swing.JFrame {
         escritorio.removeAll();
         escritorio.repaint();
 
-        Alumnos ventana = new Alumnos();
+        AlumnoVista ventana = new AlumnoVista();
         ventana.setVisible(true);
         escritorio.add(ventana);
         escritorio.moveToFront(ventana);
@@ -151,7 +151,7 @@ public class Vista extends javax.swing.JFrame {
     private void jMMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMMateriaActionPerformed
         escritorio.removeAll();
         escritorio.repaint();
-        Materias ventanaMat = new Materias();
+        Materias_Vista ventanaMat = new Materias_Vista();
         ventanaMat.setVisible(true);
         escritorio.add(ventanaMat);
         escritorio.moveToFront(ventanaMat);
@@ -160,7 +160,7 @@ public class Vista extends javax.swing.JFrame {
     private void jMManejoDeInscripcionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMManejoDeInscripcionActionPerformed
         escritorio.removeAll();
         escritorio.repaint();
-        Inscripcion ventanaMat = new Inscripcion();
+        InscripcionVista ventanaMat = new InscripcionVista();
         ventanaMat.setVisible(true);
         escritorio.add(ventanaMat);
         escritorio.moveToFront(ventanaMat);

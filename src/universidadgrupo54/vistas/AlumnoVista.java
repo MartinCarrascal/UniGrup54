@@ -10,21 +10,21 @@ import java.time.ZoneId;
 import java.util.Date;
 import javax.swing.JInternalFrame;
 import universidadgrupo54.accesoDatos.AlumnoData;
-import universidadgrupo54.entidades.Alumno;
+import universidadgrupo54.entidades.AlumnoEntidades;
 
 /**
  *
  * @author Pablo
  */
-public class Alumnos extends javax.swing.JInternalFrame {
+public class AlumnoVista extends javax.swing.JInternalFrame {
 
     private boolean esNuevo;
-    public Alumnos() {
+    public AlumnoVista() {
         initComponents();
     }
    
     AlumnoData aluD = new AlumnoData();
-    Alumno alum = new Alumno();
+    AlumnoEntidades alum = new AlumnoEntidades();
     
     
     /**
@@ -221,11 +221,11 @@ public class Alumnos extends javax.swing.JInternalFrame {
         LocalDate fechaNueva = jDFechaNacimiento.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
         Date fechaNacimiento = jDFechaNacimiento.getDate();
         if (esNuevo ) {
-            Alumno alum = new Alumno(dni, apellido, nombre, fechaNueva, true);
+            AlumnoEntidades alum = new AlumnoEntidades(dni, apellido, nombre, fechaNueva, true);
         aluD.guardarAlumno(alum);
       
         }else{
-        Alumno alum = new Alumno(dni, apellido, nombre, fechaNueva, true);
+        AlumnoEntidades alum = new AlumnoEntidades(dni, apellido, nombre, fechaNueva, true);
          aluD.modificarAlumno(alum);
          
         }
@@ -244,7 +244,7 @@ public class Alumnos extends javax.swing.JInternalFrame {
         esNuevo = false;
         int documento = Integer.parseInt(jtDocumento.getText());
        
-      Alumno alu = aluD.buscarAlumnoPorDni(documento); 
+      AlumnoEntidades alu = aluD.buscarAlumnoPorDni(documento); 
      // jTId.setText("" +alu.getIdAlumno() );
       jTApellido.setEnabled(true);
       jTNombre.setEnabled(true);
@@ -263,7 +263,7 @@ public class Alumnos extends javax.swing.JInternalFrame {
     private void jBEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBEliminarActionPerformed
    
         int documento = Integer.parseInt(jtDocumento.getText());
-         Alumno al = aluD.buscarAlumnoPorDni(documento); 
+         AlumnoEntidades al = aluD.buscarAlumnoPorDni(documento); 
       
          int idAlu = al.getIdAlumno();
          aluD.eliminarAlumno(idAlu);
