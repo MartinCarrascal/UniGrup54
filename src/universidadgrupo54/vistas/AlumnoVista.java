@@ -74,8 +74,12 @@ public class AlumnoVista extends javax.swing.JInternalFrame {
         jLabel6.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel6.setText("Fecha de nacimiento");
 
+        jtDocumento.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+
+        jTApellido.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         jTApellido.setEnabled(false);
 
+        jTNombre.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         jTNombre.setEnabled(false);
 
         jDFechaNacimiento.setEnabled(false);
@@ -87,6 +91,7 @@ public class AlumnoVista extends javax.swing.JInternalFrame {
 
         jREstado.setEnabled(false);
 
+        jbNuevo.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jbNuevo.setText("Nuevo");
         jbNuevo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -94,6 +99,7 @@ public class AlumnoVista extends javax.swing.JInternalFrame {
             }
         });
 
+        jBEliminar.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jBEliminar.setText("Eliminar");
         jBEliminar.setEnabled(false);
         jBEliminar.addActionListener(new java.awt.event.ActionListener() {
@@ -102,6 +108,7 @@ public class AlumnoVista extends javax.swing.JInternalFrame {
             }
         });
 
+        jBGuardar.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jBGuardar.setText("Guardar");
         jBGuardar.setEnabled(false);
         jBGuardar.addActionListener(new java.awt.event.ActionListener() {
@@ -110,6 +117,7 @@ public class AlumnoVista extends javax.swing.JInternalFrame {
             }
         });
 
+        jBSalir.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jBSalir.setText("Salir");
         jBSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -117,6 +125,7 @@ public class AlumnoVista extends javax.swing.JInternalFrame {
             }
         });
 
+        jBBuscar.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jBBuscar.setText("Buscar");
         jBBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -140,27 +149,27 @@ public class AlumnoVista extends javax.swing.JInternalFrame {
                             .addComponent(jLabel6))
                         .addGap(73, 73, 73)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jDFechaNacimiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jREstado)
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jtDocumento)
                                     .addComponent(jTApellido)
-                                    .addComponent(jTNombre, javax.swing.GroupLayout.DEFAULT_SIZE, 182, Short.MAX_VALUE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 135, Short.MAX_VALUE)
+                                    .addComponent(jTNombre)
+                                    .addComponent(jDFechaNacimiento, javax.swing.GroupLayout.DEFAULT_SIZE, 304, Short.MAX_VALUE))
+                                .addGap(78, 78, 78)
                                 .addComponent(jBBuscar))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(66, 66, 66)
                         .addComponent(jbNuevo)
-                        .addGap(54, 54, 54)
+                        .addGap(31, 31, 31)
                         .addComponent(jBEliminar)
-                        .addGap(52, 52, 52)
+                        .addGap(33, 33, 33)
                         .addComponent(jBGuardar)
-                        .addGap(86, 86, 86)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jBSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(63, 63, 63))
             .addGroup(layout.createSequentialGroup()
-                .addGap(309, 309, 309)
+                .addGap(351, 351, 351)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -195,7 +204,7 @@ public class AlumnoVista extends javax.swing.JInternalFrame {
                     .addComponent(jBEliminar)
                     .addComponent(jBGuardar)
                     .addComponent(jBSalir))
-                .addGap(0, 108, Short.MAX_VALUE))
+                .addGap(0, 92, Short.MAX_VALUE))
         );
 
         pack();

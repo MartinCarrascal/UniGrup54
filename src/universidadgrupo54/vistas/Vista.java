@@ -54,16 +54,18 @@ public class Vista extends javax.swing.JFrame {
         );
         escritorioLayout.setVerticalGroup(
             escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 629, Short.MAX_VALUE)
+            .addGap(0, 627, Short.MAX_VALUE)
         );
 
         GestionAlumnos.setText("Alumno");
+        GestionAlumnos.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         GestionAlumnos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 GestionAlumnosActionPerformed(evt);
             }
         });
 
+        MenuAlumno.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         MenuAlumno.setText("Formulario de alumno");
         MenuAlumno.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -75,7 +77,9 @@ public class Vista extends javax.swing.JFrame {
         jMenuBar1.add(GestionAlumnos);
 
         jMenu2.setText("Materia");
+        jMenu2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
 
+        jMMateria.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jMMateria.setText("Formulario de materia");
         jMMateria.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -87,7 +91,9 @@ public class Vista extends javax.swing.JFrame {
         jMenuBar1.add(jMenu2);
 
         jMenu3.setText("Administracion");
+        jMenu3.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
 
+        jManejoInscripcion.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jManejoInscripcion.setText("Manejo de inscripcion");
         jManejoInscripcion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -96,6 +102,7 @@ public class Vista extends javax.swing.JFrame {
         });
         jMenu3.add(jManejoInscripcion);
 
+        jActualizacionNotas.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jActualizacionNotas.setText("Manipulacion de notas");
         jActualizacionNotas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -107,12 +114,14 @@ public class Vista extends javax.swing.JFrame {
         jMenuBar1.add(jMenu3);
 
         jConsultaAlumMateria.setText("Consultas");
+        jConsultaAlumMateria.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jConsultaAlumMateria.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jConsultaAlumMateriaActionPerformed(evt);
             }
         });
 
+        jMConsAlumMat.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jMConsAlumMat.setText("Alumnos por materia");
         jMConsAlumMat.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -124,6 +133,7 @@ public class Vista extends javax.swing.JFrame {
         jMenuBar1.add(jConsultaAlumMateria);
 
         jMenu5.setText("Salir");
+        jMenu5.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jMenu5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenu5ActionPerformed(evt);
