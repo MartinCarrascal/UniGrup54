@@ -9,12 +9,14 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import universidadgrupo54.entidades.AlumnoEntidades;
+import universidadgrupo54.entidades.InscripcionEntidades;
 import universidadgrupo54.entidades.MateriaEntidades;
 
 /**
@@ -72,6 +74,36 @@ public class InscripcionData {
         return materias;
     }
     
+      public void guardarInscripcion(InscripcionEntidades ins) {
+        
+        String sql = "INSERT INTO inscripcion ( nota, idAlumno, idMateria) VALUES (?,?,?);";
+        
+        try(PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
+          ps.setDouble(1,ins.getNota());
+           ps.setInt(2, ins.getAlumno().getIdAlumno());
+           ps.setInt(3, ins.getMateria().getIdMateria());
+           ps.executeUpdate();
+           ResultSet rs = ps.getGeneratedKeys();
+            if (rs.next()) {
+                ins.setIdInscripto(1);
+                mensaje("Inscripcion realizada");
+            }else{
+                mensaje("Inscripcion fallida");
+            }
+            
+        } catch (SQLException e) {
+            mensaje("Error al acceder a la tabla inscripcion " + e.getMessage());
+        }
+    }
+      
+//      public List<MateriaEntidades> obtenerMateriasNoCursadas(int id) {
+//          List<MateriaEntidades> materias = new ArrayList<>();
+//          
+//          String sql =  "SELECT inscripcion.idMateria, nombre, anio FROM inscripcion,"
+//                + "materia WHERE inscripcion.idMateria = materia.idMateria \n "
+//                + "AND inscripcion.idAlumno =?;";
+//          
+//      }
     
     
 }
