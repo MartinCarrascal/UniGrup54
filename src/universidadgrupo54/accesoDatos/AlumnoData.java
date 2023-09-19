@@ -39,7 +39,7 @@ public class AlumnoData {
     }
 
     private void mensaje(String mensaje) {
-        JOptionPane.showConfirmDialog(null, mensaje);
+        JOptionPane.showMessageDialog(null, mensaje);
     }
 
     public void guardarAlumno(AlumnoEntidades alumno) {

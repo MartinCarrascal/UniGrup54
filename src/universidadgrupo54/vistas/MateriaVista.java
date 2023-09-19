@@ -27,7 +27,7 @@ public class MateriaVista extends javax.swing.JInternalFrame {
     boolean banderaModificar = false;
 
     private void mensaje(String mensaje) {
-        JOptionPane.showConfirmDialog(null, mensaje);
+        JOptionPane.showMessageDialog(null, mensaje);
     }
 
     /**
