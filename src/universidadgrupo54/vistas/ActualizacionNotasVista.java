@@ -6,8 +6,11 @@
 package universidadgrupo54.vistas;
 
 
+import java.util.List;
+import javax.swing.table.DefaultTableModel;
 import universidadgrupo54.accesoDatos.AlumnoData;
 import universidadgrupo54.accesoDatos.InscripcionData;
+import universidadgrupo54.entidades.AlumnoEntidades;
 
 
 /**
@@ -15,16 +18,20 @@ import universidadgrupo54.accesoDatos.InscripcionData;
  * @author Ideapad 5
  */
 public class ActualizacionNotasVista extends javax.swing.JInternalFrame {
-
-    InscripcionData inData=new InscripcionData();
-    AlumnoData aluD=new AlumnoData();
+  private DefaultTableModel modelo = new DefaultTableModel();
+   
     
     /**
      * Creates new form Actualizacion_Datos
      */
     public ActualizacionNotasVista() {
+       
+        AlumnoData ad = new AlumnoData();
+        List<AlumnoEntidades> alumnos = ad.listarAlumnos();
+        
         initComponents();
-        cargarCombo();
+        armarCabecera();
+        cargarCombo(alumnos);
     }
 
     /**
@@ -38,11 +45,11 @@ public class ActualizacionNotasVista extends javax.swing.JInternalFrame {
 
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        jcBSelecAlum = new javax.swing.JComboBox<>();
+        jcBSelecAlumno = new javax.swing.JComboBox<>();
         jButton1 = new javax.swing.JButton();
         jBSalir = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jListarMaterias = new javax.swing.JTable();
 
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         jLabel1.setText("Carga de Notas");
@@ -50,21 +57,7 @@ public class ActualizacionNotasVista extends javax.swing.JInternalFrame {
         jLabel2.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel2.setText("Seleccione Alumno");
 
-        jTable1.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
-            },
-            new String [] {
-                "Codigo", "Nombre", "Nota"
-            }
-        ));
-        jScrollPane1.setViewportView(jTable1);
-
-        jcBSelecAlum.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jcBSelecAlumno.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
 
         jButton1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jButton1.setText("Guardar");
@@ -77,27 +70,40 @@ public class ActualizacionNotasVista extends javax.swing.JInternalFrame {
             }
         });
 
+        jListarMaterias.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
+            },
+            new String [] {
+                "ID", "Nombre", "Año"
+            }
+        ));
+        jScrollPane2.setViewportView(jListarMaterias);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(46, 46, 46)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 795, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addComponent(jLabel2)
                         .addGap(18, 18, 18)
-                        .addComponent(jcBSelecAlum, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 710, Short.MAX_VALUE)
-                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jcBSelecAlumno, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jBSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(52, 52, 52))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(353, 353, 353)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(304, 304, 304))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -107,10 +113,10 @@ public class ActualizacionNotasVista extends javax.swing.JInternalFrame {
                 .addGap(58, 58, 58)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jcBSelecAlum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(47, 47, 47)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 264, Short.MAX_VALUE)
-                .addGap(18, 18, 18)
+                    .addComponent(jcBSelecAlumno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(38, 38, 38)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jBSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -132,13 +138,25 @@ public class ActualizacionNotasVista extends javax.swing.JInternalFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JComboBox<AlumnoData> jcBSelecAlum;
+    private javax.swing.JTable jListarMaterias;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JComboBox<String> jcBSelecAlumno;
     // End of variables declaration//GEN-END:variables
 
-public void cargarCombo(){
+  private void armarCabecera() {
+        modelo.addColumn("ID");
+        modelo.addColumn("Nombre");
+        modelo.addColumn("Año");
+        jListarMaterias.setModel(modelo);
+    }
 
-}
+    private void cargarCombo(List<AlumnoEntidades> alumnos) {
+        System.out.println(alumnos);
+        for (AlumnoEntidades listarAlumno : alumnos) {
+            String nombres = listarAlumno.getApellido() + " " + listarAlumno.getNombre();
+            jcBSelecAlumno.addItem(nombres);
+        }
+
+    }
 
 }
