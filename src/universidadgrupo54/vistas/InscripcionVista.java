@@ -5,6 +5,10 @@
  */
 package universidadgrupo54.vistas;
 
+import universidadgrupo54.accesoDatos.AlumnoData;
+import universidadgrupo54.accesoDatos.InscripcionData;
+import universidadgrupo54.entidades.AlumnoEntidades;
+
 /**
  *
  * @author Ideapad 5
@@ -15,9 +19,14 @@ public class InscripcionVista extends javax.swing.JInternalFrame {
      * Creates new form Inscripcion
      */
     public InscripcionVista() {
-        initComponents();
+          initComponents();
+          buttonGroup3.add(jRInscripSi);
+          buttonGroup3.add(jRInscripNo);
     }
     
+    AlumnoData aluD = new AlumnoData();
+    InscripcionData insD = new InscripcionData();
+    AlumnoEntidades alu = new AlumnoEntidades();
     /**
      
      */
@@ -25,8 +34,6 @@ public class InscripcionVista extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        buttonGroup1 = new javax.swing.ButtonGroup();
-        buttonGroup2 = new javax.swing.ButtonGroup();
         buttonGroup3 = new javax.swing.ButtonGroup();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -168,7 +175,11 @@ public class InscripcionVista extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jRInscripNoActionPerformed
 
     private void jCBSelecAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCBSelecAlumnoActionPerformed
-        // Traer la lista completa de alumnos y elegir uno mediante un click.
+      
+        for (AlumnoEntidades alu : aluD.listarAlumnos()) {
+            jCBSelecAlumno.addItem(alu.getNombre());
+        }
+        
     }//GEN-LAST:event_jCBSelecAlumnoActionPerformed
 
     private void jBSalirInscActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBSalirInscActionPerformed
@@ -178,8 +189,6 @@ public class InscripcionVista extends javax.swing.JInternalFrame {
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.ButtonGroup buttonGroup3;
     private javax.swing.JButton jBAnuInscripcion;
     private javax.swing.JButton jBInscripcion;
