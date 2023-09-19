@@ -5,21 +5,34 @@
  */
 package universidadgrupo54.vistas;
 
+import java.util.List;
+import javax.swing.table.DefaultTableModel;
+import universidadgrupo54.accesoDatos.AlumnoData;
+import universidadgrupo54.accesoDatos.MateriaData;
+import universidadgrupo54.entidades.AlumnoEntidades;
+
 /**
  *
  * @author Ideapad 5
  */
 public class InscripcionVista extends javax.swing.JInternalFrame {
 
+    private DefaultTableModel modelo = new DefaultTableModel();
+
     /**
      * Creates new form Inscripcion
      */
     public InscripcionVista() {
+        AlumnoData ad = new AlumnoData();
+        List<AlumnoEntidades> alumnos = ad.listarAlumnos();
         initComponents();
+        armarCabecera();
+        cargarCombo(alumnos);
+
     }
-    
+
     /**
-     
+     *
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -33,7 +46,7 @@ public class InscripcionVista extends javax.swing.JInternalFrame {
         jRInscripSi = new javax.swing.JRadioButton();
         jRInscripNo = new javax.swing.JRadioButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jTMaterias = new javax.swing.JTable();
         jLabel3 = new javax.swing.JLabel();
         jCBSelecAlumno = new javax.swing.JComboBox<>();
         jBInscripcion = new javax.swing.JButton();
@@ -62,8 +75,8 @@ public class InscripcionVista extends javax.swing.JInternalFrame {
             }
         });
 
-        jTable1.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jTMaterias.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jTMaterias.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
                 {null, null, null},
@@ -71,10 +84,10 @@ public class InscripcionVista extends javax.swing.JInternalFrame {
                 {null, null, null}
             },
             new String [] {
-                "ID", "Nombre", "Año"
+                "Items 1", "Items 2", "Items 3"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(jTMaterias);
 
         jLabel3.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel3.setText("Listado de Materia");
@@ -175,7 +188,6 @@ public class InscripcionVista extends javax.swing.JInternalFrame {
         dispose();
     }//GEN-LAST:event_jBSalirInscActionPerformed
 
-    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroup1;
@@ -191,6 +203,25 @@ public class InscripcionVista extends javax.swing.JInternalFrame {
     private javax.swing.JRadioButton jRInscripNo;
     private javax.swing.JRadioButton jRInscripSi;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable jTMaterias;
     // End of variables declaration//GEN-END:variables
+
+private void armarCabecera(){
+    modelo.addColumn("ID");
+    modelo.addColumn("No");
+    modelo.addColumn("Año");
+    jTMaterias.setModel(modelo);  
+}
+    
+    
+    private void cargarCombo(List<AlumnoEntidades> alumnos) {
+        System.out.println(alumnos);
+        for (AlumnoEntidades listarAlumno : alumnos) {
+            int dat= listarAlumno.getDni();
+            String nombres = listarAlumno.getApellido()+ " " +listarAlumno.getNombre();
+            jCBSelecAlumno.addItem(nombres);
+        }
+
+    }
+
 }
