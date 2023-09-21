@@ -5,17 +5,120 @@
  */
 package universidadgrupo54.vistas;
 
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
+import javax.swing.table.DefaultTableModel;
+import universidadgrupo54.accesoDatos.AlumnoData;
+import universidadgrupo54.accesoDatos.InscripcionData;
+import universidadgrupo54.accesoDatos.MateriaData;
+import universidadgrupo54.entidades.AlumnoEntidades;
+import universidadgrupo54.entidades.InscripcionEntidades;
+import universidadgrupo54.entidades.MateriaEntidades;
+
 /**
  *
  * @author Pablo
  */
 public class InscripcionVista extends javax.swing.JInternalFrame {
 
-    /**
-     * Creates new form InscripcionVista
-     */
+   private AlumnoData ad;
+   private DefaultTableModel modelo; 
+   private AlumnoEntidades alumnoSeleccionado;
+   private MateriaData md;
+   private MateriaEntidades matSelec;
+   private InscripcionData id;
+    
     public InscripcionVista() {
         initComponents();
+       
+        ad = new AlumnoData();
+        md = new MateriaData();
+        id = new InscripcionData();
+        
+        cargarCombo();   
+        jRInscripSi.setSelected(true);
+        jcbSelecAlumno.addItemListener(new ItemListener() {
+            @Override
+            public void itemStateChanged(ItemEvent ie) {
+                if (ie.getStateChange() == ItemEvent.SELECTED) {
+                    jRInscripSi.setSelected(true);
+                    alumnoSeleccionado = (AlumnoEntidades) jcbSelecAlumno.getSelectedItem();
+                    cargarTabla();
+                }
+            }
+        });
+          jRInscripNo.addItemListener(new ItemListener() {
+            @Override
+            public void itemStateChanged(ItemEvent ie) {
+                jRInscripSi.setSelected(false);
+                cargarTabla();
+            }
+        });
+          jTListarMaterias.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
+            @Override
+            public void valueChanged(ListSelectionEvent lse) {
+                if (!lse.getValueIsAdjusting()) {
+                    matSelec = null;
+                    int filaSel = jTListarMaterias.getSelectedRow();
+                    if (filaSel > -1) {
+                        matSelec =(MateriaEntidades) jTListarMaterias.getValueAt(filaSel, 3);
+                    }
+                }
+            }
+        });
+          jBSalir.addActionListener(e -> dispose() );
+          
+           dibujarTabla();
+    }
+    
+    private void cargarCombo() {
+        jcbSelecAlumno.removeAllItems();
+        for (AlumnoEntidades  al: ad.listarAlumnos()) {
+            jcbSelecAlumno.addItem(al);
+        }
+        if (jcbSelecAlumno.getItemCount()>0) {
+            alumnoSeleccionado =(AlumnoEntidades)jcbSelecAlumno.getSelectedItem();
+        }
+    }
+    
+    
+    private void cargarTabla() {
+        
+        String where;
+        modelo.setRowCount(0);
+        if (jRInscripSi.isSelected()) {
+            where = "AND m.idMateria IN (SELECT i.idMateria FROM inscripcion i WHERE i.idAlumno = " + alumnoSeleccionado.getIdAlumno()+") ORDER BY m.idMateria";
+        }else{
+            
+            where= "AND m.idMateria NOT IN (SELECT i.idMateria FROM inscripcion i WHERE i.idAlumno = " + alumnoSeleccionado.getIdAlumno()+") ORDER BY m.idMateria";
+        }
+        for ( MateriaEntidades mat : md.listarMateriaConWhere(where)) {
+         
+            modelo.addRow(new Object[]{mat.getIdMateria(),mat.getNombre(),mat.getAnio(),mat});
+        }
+        if (jTListarMaterias.getRowCount()>0) {
+            jTListarMaterias.setRowSelectionInterval(0,0);
+            matSelec =(MateriaEntidades)jTListarMaterias.getValueAt(0, 3);
+            if (jRInscripSi.isSelected()) {
+                jBAnular.setEnabled(true);
+                jBInscribir.setEnabled(false);
+            }else {
+                jBAnular.setEnabled(false);
+                jBInscribir.setEnabled(true);
+            }
+        }else {
+             jBInscribir.setEnabled(false);
+             jBAnular.setEnabled(false);
+        }
+            
+        }
+    
+    
+    private void dibujarTabla() {
+        modelo =(DefaultTableModel)jTListarMaterias.getModel();
+        cargarTabla();
     }
 
     /**
@@ -27,21 +130,174 @@ public class InscripcionVista extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup = new javax.swing.ButtonGroup();
+        jLabel1 = new javax.swing.JLabel();
+        jcbSelecAlumno = new javax.swing.JComboBox<>();
+        jLabel2 = new javax.swing.JLabel();
+        jRInscripNo = new javax.swing.JRadioButton();
+        jRInscripSi = new javax.swing.JRadioButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTListarMaterias = new javax.swing.JTable();
+        jBInscribir = new javax.swing.JButton();
+        jBAnular = new javax.swing.JButton();
+        jBSalir = new javax.swing.JButton();
+
+        setTitle("Formulario Inscripciones");
+
+        jLabel1.setText("Seleccione un alumno");
+
+        jcbSelecAlumno.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jcbSelecAlumnoActionPerformed(evt);
+            }
+        });
+
+        jLabel2.setText("Listado de materias");
+
+        buttonGroup.add(jRInscripNo);
+        jRInscripNo.setText("Materias No inscriptas");
+
+        buttonGroup.add(jRInscripSi);
+        jRInscripSi.setText("Materias inscriptas");
+
+        jTListarMaterias.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Id", "Nombre", "Anio", "Materia"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, true, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(jTListarMaterias);
+        if (jTListarMaterias.getColumnModel().getColumnCount() > 0) {
+            jTListarMaterias.getColumnModel().getColumn(0).setResizable(false);
+            jTListarMaterias.getColumnModel().getColumn(1).setResizable(false);
+            jTListarMaterias.getColumnModel().getColumn(2).setResizable(false);
+            jTListarMaterias.getColumnModel().getColumn(3).setMinWidth(0);
+            jTListarMaterias.getColumnModel().getColumn(3).setPreferredWidth(0);
+            jTListarMaterias.getColumnModel().getColumn(3).setMaxWidth(0);
+        }
+
+        jBInscribir.setText("Inscribir");
+        jBInscribir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBInscribirActionPerformed(evt);
+            }
+        });
+
+        jBAnular.setText("Anular");
+        jBAnular.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBAnularActionPerformed(evt);
+            }
+        });
+
+        jBSalir.setText("Salir");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 394, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(19, 19, 19)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(148, 148, 148)
+                        .addComponent(jcbSelecAlumno, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(294, 294, 294)
+                        .addComponent(jLabel2)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(77, 77, 77)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 587, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(106, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jRInscripSi)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jRInscripNo)
+                        .addGap(144, 144, 144))))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(64, 64, 64)
+                .addComponent(jBInscribir)
+                .addGap(132, 132, 132)
+                .addComponent(jBAnular)
+                .addGap(141, 141, 141)
+                .addComponent(jBSalir)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 274, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(63, 63, 63)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jcbSelecAlumno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1))
+                .addGap(51, 51, 51)
+                .addComponent(jLabel2)
+                .addGap(51, 51, 51)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jRInscripNo)
+                    .addComponent(jRInscripSi))
+                .addGap(45, 45, 45)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(64, 64, 64)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jBInscribir)
+                    .addComponent(jBAnular)
+                    .addComponent(jBSalir))
+                .addContainerGap(102, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jcbSelecAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbSelecAlumnoActionPerformed
+//        dibujarTabla();
+    }//GEN-LAST:event_jcbSelecAlumnoActionPerformed
+
+    private void jBInscribirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBInscribirActionPerformed
+      int fila = jTListarMaterias.getSelectedRow();
+        if (fila >= 0) {
+            System.out.println(matSelec);
+             id.guardarInscripcion(new InscripcionEntidades(alumnoSeleccionado, matSelec, 0));
+             modelo.removeRow(fila);
+        }
+       
+    }//GEN-LAST:event_jBInscribirActionPerformed
+
+    private void jBAnularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBAnularActionPerformed
+        int fila = jTListarMaterias.getSelectedRow() ;
+        if (fila >= 0) {
+            System.out.println(matSelec);
+             id.borrarInscripcionMateriaAlumno(alumnoSeleccionado.getIdAlumno(), matSelec.getIdMateria());
+             modelo.removeRow(fila);
+        }
+    }//GEN-LAST:event_jBAnularActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.ButtonGroup buttonGroup;
+    private javax.swing.JButton jBAnular;
+    private javax.swing.JButton jBInscribir;
+    private javax.swing.JButton jBSalir;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JRadioButton jRInscripNo;
+    private javax.swing.JRadioButton jRInscripSi;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTListarMaterias;
+    private javax.swing.JComboBox<AlumnoEntidades> jcbSelecAlumno;
     // End of variables declaration//GEN-END:variables
 }

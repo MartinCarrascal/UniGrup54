@@ -47,13 +47,10 @@ public class InscripcionData {
     public List<MateriaEntidades> obtenerMateriasCursadas(int id) {
         List<MateriaEntidades> materias = new ArrayList<>();
 
-//        String sql = "SELECT inscripcion.idMateria, nombre, anio FROM inscripcion,"
-//                + "materia WHERE inscripcion.idMateria = materia.idMateria \n "
-//                + "AND inscripcion.idAlumno =?;";
+        String sql = "SELECT * FROM materia WHERE estado = 1 AND idMateria IN "
+                + "(SELECT idMateria FROM inscripcion WHERE inscripcion.idAlumno = ?)";
 
-           String sql = "SELECT i.idMateria, m.nombre, m.anio FROM inscripcion i"
-                   + "JOIN materia m USING (idMateria) WHERE idMateria IN (SELECT idMateria FROM inscripcion WHERE "
-                   + "idAlumno = ?) ";
+         
 
         try {
             PreparedStatement ps = connection.prepareStatement(sql);

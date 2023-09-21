@@ -15,9 +15,9 @@ import java.sql.SQLException;
  */
 public class Conexion {
     
-     private static String url = "jdbc:mariadb://localhost:3307/universidad";   
-        private static String usuario = "root";
-        private static String password = "";
+     private static  String url = "jdbc:mariadb://localhost:3307/universidad";   
+        private static  String usuario = "root";
+        private static  String password = "";
         private static Connection connection;
     
         private Conexion() throws ClassNotFoundException {

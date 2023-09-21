@@ -28,7 +28,7 @@ public class AlumnoData {
     private Connection connection = null;
 
     public AlumnoData() {
-
+        
         try {
             connection = Conexion.getConexion();
         } catch (SQLException ex) {
@@ -36,7 +36,9 @@ public class AlumnoData {
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(AlumnoData.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }
+     }
+
+       
 
     private void mensaje(String mensaje) {
         JOptionPane.showMessageDialog(null, mensaje);
@@ -51,12 +53,12 @@ public class AlumnoData {
             ps.setInt(1, alumno.getDni());
             ps.setString(2, alumno.getApellido());
             ps.setString(3, alumno.getNombre());
-            ps.setDate(4, Date.valueOf(alumno.getFechaNacimiento()));//localDate a Date
-            ps.setBoolean(5, alumno.isEstado()); // if reducido
+            ps.setDate(4, Date.valueOf(alumno.getFechaNacimiento()));
+            ps.setBoolean(5, alumno.isEstado()); 
             ps.executeUpdate();
             ResultSet rs = ps.getGeneratedKeys();
             if (rs.next()) {
-                alumno.setIdAlumno(rs.getInt("idAlumno"));
+                alumno.setIdAlumno(rs.getInt(1));
                 mensaje("Se agrego el alumno exitosamente");
                 ps.close();
             }
@@ -153,8 +155,9 @@ public class AlumnoData {
         //despues llamas al metodo y le pasa el alumno que creaste
 
         String sql = "UPDATE alumno SET dni = ? , apellido = ?, nombre = ?, fechaNacimiento = ? WHERE idAlumno = ?";
-
-        try (PreparedStatement ps = connection.prepareStatement(sql)) {
+            PreparedStatement ps = null;
+        try  {
+            ps = connection.prepareStatement(sql);
             ps.setInt(1, alumno.getDni());
             ps.setString(2, alumno.getApellido());
             ps.setString(3, alumno.getNombre());

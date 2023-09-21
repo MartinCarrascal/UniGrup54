@@ -151,24 +151,24 @@ public class MateriaData {
     }
     
     
-//    public List<MateriaEntidades> listarMateriaConWhere(String where) {
-//        
-//        List<MateriaEntidades> lista = new ArrayList<>();
-//        String sql = "SELECT * FROM materia WHERE estado = 1 "+ where;
-//        
-//        try(PreparedStatement ps = connection.prepareStatement(sql); ResultSet rs = ps.executeQuery()) {
-//            while (rs.next()) {  
-//                MateriaEntidades materia = new MateriaEntidades();
-//                materia.setIdMateria(rs.getInt("idMateria"));
-//                materia.setNombre(rs.getString("nombre"));
-//                materia.setAnio(rs.getInt("anio"));
-//                materia.setEstado(rs.getBoolean("estado"));
-//                lista.add(materia);
-//            }
-//            
-//        } catch (SQLException e) {
-//            mensaje("Error al cargar la tabla materia " + e.getMessage());
-//        }
-//        return lista;
-//    }
+    public List<MateriaEntidades> listarMateriaConWhere(String where) {
+        
+        List<MateriaEntidades> lista = new ArrayList<>();
+        String sql = "SELECT m.* FROM materia m WHERE  m.estado = 1 "+ where;
+       
+        try(Statement ps = connection.createStatement(); ResultSet rs = ps.executeQuery(sql)) {
+            while (rs.next()) {  
+                MateriaEntidades materia = new MateriaEntidades();
+                materia.setIdMateria(rs.getInt("idMateria"));
+                materia.setNombre(rs.getString("nombre"));
+                materia.setAnio(rs.getInt("anio"));
+                materia.setEstado(rs.getBoolean("estado"));
+                lista.add(materia);
+            }
+            
+        } catch (SQLException e) {
+            mensaje("Error al cargar la tabla materia " + e.getMessage());
+        }
+        return lista;
+    }
 }

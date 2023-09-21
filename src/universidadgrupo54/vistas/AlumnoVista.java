@@ -217,7 +217,9 @@ public class AlumnoVista extends javax.swing.JInternalFrame {
        jDFechaNacimiento.setEnabled(true);
        esNuevo = true;
        jREstado.setEnabled(true);
+       jREstado.setSelected(true);
        jBGuardar.setEnabled(true);
+       
        
     }//GEN-LAST:event_jbNuevoActionPerformed
 
@@ -228,7 +230,7 @@ public class AlumnoVista extends javax.swing.JInternalFrame {
         String nombre = jTNombre.getText();
         String apellido = jTApellido.getText();
         LocalDate fechaNueva = jDFechaNacimiento.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
-        Date fechaNacimiento = jDFechaNacimiento.getDate();
+       // Date fechaNacimiento = jDFechaNacimiento.getDate();
         if (esNuevo ) {
             AlumnoEntidades alum = new AlumnoEntidades(dni, apellido, nombre, fechaNueva, true);
         aluD.guardarAlumno(alum);
@@ -242,7 +244,10 @@ public class AlumnoVista extends javax.swing.JInternalFrame {
         jTApellido.setText("");
         jTNombre.setText("");
         jREstado.setSelected(false);
-        jDFechaNacimiento.cleanup();
+        
+       // jDFechaNacimiento.cleanup();
+       
+        
     }//GEN-LAST:event_jBGuardarActionPerformed
 
     private void jDFechaNacimientoPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jDFechaNacimientoPropertyChange
@@ -276,6 +281,11 @@ public class AlumnoVista extends javax.swing.JInternalFrame {
       
          int idAlu = al.getIdAlumno();
          aluD.eliminarAlumno(idAlu);
+         jTApellido.setText("");
+         jtDocumento.setText("");
+         jTNombre.setText("");
+         jREstado.setSelected(false);
+         jBEliminar.setEnabled(false);
     }//GEN-LAST:event_jBEliminarActionPerformed
 
     private void jBSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBSalirActionPerformed

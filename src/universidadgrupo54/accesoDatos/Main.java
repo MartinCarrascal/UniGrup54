@@ -5,6 +5,8 @@
  */
 package universidadgrupo54.accesoDatos;
 
+import java.time.LocalDate;
+import java.time.Month;
 import universidadgrupo54.entidades.AlumnoEntidades;
 import universidadgrupo54.entidades.InscripcionEntidades;
 import universidadgrupo54.entidades.MateriaEntidades;
@@ -21,8 +23,11 @@ public class Main {
         MateriaData matD = new MateriaData();
         MateriaEntidades mat = new MateriaEntidades();
         
-        AlumnoEntidades marcelo = new AlumnoEntidades();
+        AlumnoEntidades marcelo = new AlumnoEntidades(2000, "Carozo", "Fabio", LocalDate.MIN.of(2003, Month.MARCH, 10), true);
         
+        
+        
+        alud.modificarAlumno(marcelo);
 //        System.out.println( insD.obtenerMateriasCursadas(2));
 //         insD.actualizarNota(8, 1, 10);
 //           insD.borrarInscripcionMateriaAlumno(14, 7);
@@ -33,9 +38,9 @@ public class Main {
 //                System.out.println(" Materia " + inscripcion.getMateria().getNombre());
 //        }
 
-          for (MateriaEntidades mate : insD.obtenerMateriasNoCursadas(12)) {
-                 System.out.println("nombre " + mate.getNombre() );
+//          for (MateriaEntidades mate : insD.obtenerMateriasNoCursadas(12)) {
+//                 System.out.println("nombre " + mate.getNombre() );
         }
 
     }
-}
+
