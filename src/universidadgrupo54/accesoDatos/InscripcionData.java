@@ -62,7 +62,7 @@ public class InscripcionData {
                 materia = new MateriaEntidades();
                 materia.setIdMateria(rs.getInt("idMateria"));
                 materia.setNombre(rs.getString("nombre"));
-                materia.setAnio(rs.getInt("anio"));
+                materia.setAnio(rs.getString("anio"));
                 materias.add(materia);
             }
             ps.close();
@@ -206,7 +206,7 @@ public class InscripcionData {
                 MateriaEntidades materia = new MateriaEntidades();
                 materia.setIdMateria(rs.getInt("idMateria"));
                 materia.setNombre(rs.getString("nombre"));
-                materia.setAnio(rs.getInt("anio"));
+                materia.setAnio(rs.getString("anio"));
                 lista.add(materia);
             }
             ps.close();

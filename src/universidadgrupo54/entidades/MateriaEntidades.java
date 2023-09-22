@@ -11,15 +11,15 @@ package universidadgrupo54.entidades;
  */
 public class MateriaEntidades {
     
-      private int idMateria;
+    private int idMateria;
     private String nombre;
-    private int anio;
+    private String anio;
     private boolean estado;
 
     public MateriaEntidades() {
     }
 
-    public MateriaEntidades(String nombre, int anio, boolean estado) {
+    public MateriaEntidades(String nombre, String anio, boolean estado) {
         this.nombre = nombre;
         this.anio = anio;
         this.estado = estado;
@@ -27,7 +27,7 @@ public class MateriaEntidades {
     
     
 
-    public MateriaEntidades(int idMateria, String nombre, int anio, boolean estado) {
+    public MateriaEntidades(int idMateria, String nombre, String anio, boolean estado) {
         this.idMateria = idMateria;
         this.nombre = nombre;
         this.anio = anio;
@@ -50,11 +50,11 @@ public class MateriaEntidades {
         this.nombre = nombre;
     }
 
-    public int getAnio() {
+    public String getAnio() {
         return anio;
     }
 
-    public void setAnio(int anio) {
+    public void setAnio(String anio) {
         this.anio = anio;
     }
 

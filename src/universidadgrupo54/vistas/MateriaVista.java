@@ -214,7 +214,7 @@ public class MateriaVista extends javax.swing.JInternalFrame {
         jREstadoMat.setEnabled(true);
         jTNombreMat.setText(mat.getNombre());
        
-       jTAnio.setText(Integer.toString(mat.getAnio()));
+        jTAnio.setText(mat.getAnio());
         boolean banderaModificar = true;
         jREstadoMat.setSelected(true);
         jBGuardarMat.setEnabled(true);
@@ -242,19 +242,18 @@ public class MateriaVista extends javax.swing.JInternalFrame {
             mensaje("Esa materia ya existe");
         } else if (banderaModificar = true) {
             
-             int codigo = Integer.parseInt(jTCodigo.getText());
+            //int idMateria = jTCodigo.getText();
             String nombre = jTNombreMat.getText();
            
-            int anio = Integer.parseInt(jTAnio.getText());
-       
-            
-            
-            MateriaEntidades mat = new MateriaEntidades(codigo, nombre, anio, true);
-            matD.modificarMateria(mat);
+            String anio = jTAnio.getText();
+                       
+            //MateriaEntidades mat = new MateriaEntidades(idMateria, nombre, anio, true);
+            MateriaEntidades mat = new MateriaEntidades( nombre, anio, true);
+            matD.guardarMateria(mat);
             
         } else {
             String nombre = jTNombreMat.getText();
-            int anio = Integer.parseInt(jTAnio.getText());
+            String anio = jTAnio.getText();
             MateriaEntidades mat = new MateriaEntidades(nombre, anio, true);
             matD.guardarMateria(mat);
         }

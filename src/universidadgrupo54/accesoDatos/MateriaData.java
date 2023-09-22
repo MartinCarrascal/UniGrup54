@@ -45,7 +45,7 @@ public class MateriaData {
          
             try (PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
             ps.setString(1, materia.getNombre());
-            ps.setInt(2, materia.getAnio());
+            ps.setString(2, materia.getAnio());
             ps.setBoolean(3, materia.isEstado());
             ps.executeUpdate();
             ResultSet rs = ps.getGeneratedKeys();
@@ -74,8 +74,8 @@ public class MateriaData {
              if (rs.next()) {
                  materia = new MateriaEntidades();
                  materia.setIdMateria(id);
-                 materia.setNombre(rs.getNString("nombre"));
-                 materia.setAnio(rs.getInt("anio"));
+                 materia.setNombre(rs.getString("nombre"));
+                 materia.setAnio(rs.getString("anio"));
                  materia.setEstado(rs.getBoolean("anio"));
                  
              }else{
@@ -95,7 +95,7 @@ public class MateriaData {
         
         try(PreparedStatement ps = connection.prepareStatement(sql)) {
             ps.setString(1, materia.getNombre());
-            ps.setInt(2, materia.getAnio());
+            ps.setString(2, materia.getAnio());
             ps.setInt(3, materia.getIdMateria());
             int exito = ps.executeUpdate();
             
@@ -139,7 +139,7 @@ public class MateriaData {
                 MateriaEntidades materia = new MateriaEntidades();
                 materia.setIdMateria(rs.getInt("idMateria"));
                 materia.setNombre(rs.getString("nombre"));
-                materia.setAnio(rs.getInt("anio"));
+                materia.setAnio(rs.getString("anio"));
                 materia.setEstado(rs.getBoolean("estado"));
                 lista.add(materia);
             }
@@ -161,7 +161,7 @@ public class MateriaData {
                 MateriaEntidades materia = new MateriaEntidades();
                 materia.setIdMateria(rs.getInt("idMateria"));
                 materia.setNombre(rs.getString("nombre"));
-                materia.setAnio(rs.getInt("anio"));
+                materia.setAnio(rs.getString("anio"));
                 materia.setEstado(rs.getBoolean("estado"));
                 lista.add(materia);
             }
