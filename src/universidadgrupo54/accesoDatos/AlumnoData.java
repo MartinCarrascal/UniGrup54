@@ -170,10 +170,12 @@ public class AlumnoData {
             }else {
                 mensaje("El alumno no existe");
             }
+            ps.close();
 
         } catch (SQLException e) {
             mensaje("Error al acceder a la tabla alumno " + e.getMessage());
         }
+        
     }
     
     public void eliminarAlumno(int id) {

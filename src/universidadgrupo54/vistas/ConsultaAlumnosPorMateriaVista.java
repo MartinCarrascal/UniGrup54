@@ -2,9 +2,12 @@
  */
 package universidadgrupo54.vistas;
 
+import java.util.ArrayList;
 import java.util.List;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.table.DefaultTableModel;
 import universidadgrupo54.accesoDatos.AlumnoData;
+import universidadgrupo54.accesoDatos.InscripcionData;
 import universidadgrupo54.accesoDatos.MateriaData;
 import universidadgrupo54.entidades.AlumnoEntidades;
 import universidadgrupo54.entidades.MateriaEntidades;
@@ -15,22 +18,30 @@ import universidadgrupo54.entidades.MateriaEntidades;
  */
 public class ConsultaAlumnosPorMateriaVista extends javax.swing.JInternalFrame {
 
-    private DefaultTableModel modelo = new DefaultTableModel();
+    private DefaultTableModel modelo;
+    private MateriaData ad;
+    private InscripcionData inData;
+    private MateriaEntidades materiaSeleccionada;
+    private DefaultComboBoxModel comboModel = new DefaultComboBoxModel();
 
-    MateriaData ad = new MateriaData();
-    List<MateriaEntidades> materia = ad.listarMateria();
+    List<MateriaEntidades> materia;
 
     /**
      * Creates new form Consulta_Alumnos_por_Materia
      */
     public ConsultaAlumnosPorMateriaVista() {
         initComponents();
+        modelo = new DefaultTableModel();
+        ad = new MateriaData();
+        materia = ad.listarMateria();
+        inData = new InscripcionData();
+        materiaSeleccionada = new MateriaEntidades();
         armarCabecera();
         cargarCombo(materia);
     }
 
     /**
-   
+     *
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -66,16 +77,27 @@ public class ConsultaAlumnosPorMateriaVista extends javax.swing.JInternalFrame {
 
         jTListarMaterias.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
                 "ID", "DNI", "APELLIDO", "NOMBRE"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane2.setViewportView(jTListarMaterias);
+        if (jTListarMaterias.getColumnModel().getColumnCount() > 0) {
+            jTListarMaterias.getColumnModel().getColumn(0).setResizable(false);
+            jTListarMaterias.getColumnModel().getColumn(1).setResizable(false);
+            jTListarMaterias.getColumnModel().getColumn(2).setResizable(false);
+            jTListarMaterias.getColumnModel().getColumn(3).setResizable(false);
+        }
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -123,7 +145,7 @@ public class ConsultaAlumnosPorMateriaVista extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jBSalidaActionPerformed
 
     private void jCBSelecMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCBSelecMateriaActionPerformed
-        // Eliminar este método
+        llenar();
     }//GEN-LAST:event_jCBSelecMateriaActionPerformed
 
 
@@ -137,20 +159,45 @@ public class ConsultaAlumnosPorMateriaVista extends javax.swing.JInternalFrame {
     // End of variables declaration//GEN-END:variables
 
     private void armarCabecera() {
-        modelo.addColumn("ID");
-        modelo.addColumn("DNI");
-        modelo.addColumn("Apellido");
-        modelo.addColumn("Nombre");
+        ArrayList<Object> filaC = new ArrayList<>();
+        filaC.add("ID");
+        filaC.add("DNI");
+        filaC.add("Apellido");
+        filaC.add("Nombre");
+        for (Object o : filaC) {
+            modelo.addColumn(o);
+        }
         jTListarMaterias.setModel(modelo);
+
+//        modelo.addColumn("ID");
+//        modelo.addColumn("DNI");
+//        modelo.addColumn("Apellido");
+//        modelo.addColumn("Nombre");
+//        jTListarMaterias.setModel(modelo);
     }
 
     private void cargarCombo(List<MateriaEntidades> materia) {
-        System.out.println(materia);
+      
         for (MateriaEntidades listarMateria : materia) {
-            String nombres = listarMateria.getNombre();
-            jCBSelecMateria.addItem(nombres);
+             comboModel.addElement(listarMateria);
+         
         }
-
+          jCBSelecMateria.setModel(comboModel);
     }
 
-}
+    public void llenar() {
+         if (jTListarMaterias.getRowCount() != 0) {
+             for (int i = jTListarMaterias.getRowCount() -1; i >= 0; i--) {
+                 modelo.removeRow(i);
+             }
+        }
+   
+        MateriaEntidades selec =(MateriaEntidades)jCBSelecMateria.getSelectedItem();
+        List<AlumnoEntidades> lista = inData.obtenerAlumnosPorMateria(selec.getIdMateria());
+        for (AlumnoEntidades alu: lista) {
+            modelo.addRow(new Object[] {alu.getIdAlumno(), alu.getDni(), alu.getApellido(), alu.getNombre()});
+        }
+       
+        }
+    }
+

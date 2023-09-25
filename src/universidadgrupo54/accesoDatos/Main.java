@@ -26,8 +26,9 @@ public class Main {
         AlumnoEntidades marcelo = new AlumnoEntidades(2000, "Carozo", "Fabio", LocalDate.MIN.of(2003, Month.MARCH, 10), true);
         
         
+//        System.out.println(insD.obtenerAlumnosPorMateria(1));
         
-        alud.modificarAlumno(marcelo);
+//        alud.modificarAlumno(marcelo);
 //        System.out.println( insD.obtenerMateriasCursadas(2));
 //         insD.actualizarNota(8, 1, 10);
 //           insD.borrarInscripcionMateriaAlumno(14, 7);
