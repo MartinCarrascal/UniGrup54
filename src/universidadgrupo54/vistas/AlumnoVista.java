@@ -19,13 +19,14 @@ import universidadgrupo54.entidades.AlumnoEntidades;
 public class AlumnoVista extends javax.swing.JInternalFrame {
 
     private boolean esNuevo;
+    AlumnoData aluD;
+    AlumnoEntidades alum;
 
     public AlumnoVista() {
         initComponents();
+        alum = new AlumnoEntidades();
+        aluD = new AlumnoData();
     }
-
-    AlumnoData aluD = new AlumnoData();
-    AlumnoEntidades alum = new AlumnoEntidades();
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -53,6 +54,7 @@ public class AlumnoVista extends javax.swing.JInternalFrame {
         jBGuardar = new javax.swing.JButton();
         jBSalir = new javax.swing.JButton();
         jBBuscar = new javax.swing.JButton();
+        jBCancelar = new javax.swing.JButton();
 
         jTId.setText("jTextField1");
 
@@ -133,6 +135,15 @@ public class AlumnoVista extends javax.swing.JInternalFrame {
             }
         });
 
+        jBCancelar.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jBCancelar.setText("Cancelar");
+        jBCancelar.setEnabled(false);
+        jBCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBCancelarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -172,6 +183,10 @@ public class AlumnoVista extends javax.swing.JInternalFrame {
                 .addGap(351, 351, 351)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jBCancelar)
+                .addGap(41, 41, 41))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -198,13 +213,15 @@ public class AlumnoVista extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel6)
                     .addComponent(jDFechaNacimiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(90, 90, 90)
+                .addGap(28, 28, 28)
+                .addComponent(jBCancelar)
+                .addGap(30, 30, 30)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jbNuevo)
                     .addComponent(jBEliminar)
                     .addComponent(jBGuardar)
                     .addComponent(jBSalir))
-                .addGap(0, 92, Short.MAX_VALUE))
+                .addGap(0, 84, Short.MAX_VALUE))
         );
 
         pack();
@@ -215,12 +232,14 @@ public class AlumnoVista extends javax.swing.JInternalFrame {
         jTNombre.setEnabled(true);
         jTApellido.setEnabled(true);
         jDFechaNacimiento.setEnabled(true);
-        esNuevo = true;
         jREstado.setEnabled(true);
         jREstado.setSelected(true);
         jBGuardar.setEnabled(true);
-
-
+        esNuevo = true;
+        jBBuscar.setEnabled(false);
+        limpiar();
+        jBEliminar.setEnabled(false);
+        jBCancelar.setEnabled(true);
     }//GEN-LAST:event_jbNuevoActionPerformed
 
     private void jBGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBGuardarActionPerformed
@@ -249,6 +268,7 @@ public class AlumnoVista extends javax.swing.JInternalFrame {
         jTNombre.setText("");
         jDFechaNacimiento.setDate(null);
         jREstado.setSelected(false);
+        jBCancelar.setEnabled(false);
 
     }//GEN-LAST:event_jBGuardarActionPerformed
 
@@ -261,7 +281,7 @@ public class AlumnoVista extends javax.swing.JInternalFrame {
         int documento = Integer.parseInt(jtDocumento.getText());
 
         AlumnoEntidades alu = aluD.buscarAlumnoPorDni(documento);
-       
+
         jTApellido.setEnabled(true);
         jTNombre.setEnabled(true);
         jDFechaNacimiento.setEnabled(true);
@@ -274,6 +294,8 @@ public class AlumnoVista extends javax.swing.JInternalFrame {
         jREstado.setSelected(alu.isEstado());
         jDFechaNacimiento.setDate(Date.from(alu.getFechaNacimiento().atStartOfDay(ZoneId.systemDefault()).toInstant()));
         jBGuardar.setEnabled(true);
+        jBBuscar.setEnabled(false);
+        jBCancelar.setEnabled(true);
     }//GEN-LAST:event_jBBuscarActionPerformed
 
     private void jBEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBEliminarActionPerformed
@@ -283,20 +305,41 @@ public class AlumnoVista extends javax.swing.JInternalFrame {
 
         int idAlu = al.getIdAlumno();
         aluD.eliminarAlumno(idAlu);
-        jTApellido.setText("");
-        jtDocumento.setText("");
-        jTNombre.setText("");
+        limpiar();
         jREstado.setSelected(false);
         jBEliminar.setEnabled(false);
+        jBCancelar.setEnabled(false);
     }//GEN-LAST:event_jBEliminarActionPerformed
 
     private void jBSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBSalirActionPerformed
         dispose();
     }//GEN-LAST:event_jBSalirActionPerformed
 
+    private void jBCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBCancelarActionPerformed
+        limpiar();
+        jREstado.setSelected(false);
+        jREstado.setEnabled(false);
+        jTApellido.setEnabled(false);
+        jTNombre.setEnabled(false);
+        jDFechaNacimiento.setEnabled(false);
+        jBBuscar.setEnabled(true);
+        jBGuardar.setEnabled(false);
+        jBEliminar.setEnabled(false);
+        jBCancelar.setEnabled(false);
+    }//GEN-LAST:event_jBCancelarActionPerformed
+
+    private void limpiar() {
+        jtDocumento.setText("");
+        jTApellido.setText("");
+        jTNombre.setText("");
+        jDFechaNacimiento.setCalendar(null);
+
+    }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBBuscar;
+    private javax.swing.JButton jBCancelar;
     private javax.swing.JButton jBEliminar;
     private javax.swing.JButton jBGuardar;
     private javax.swing.JButton jBSalir;

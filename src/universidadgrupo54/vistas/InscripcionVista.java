@@ -39,9 +39,11 @@ public class InscripcionVista extends javax.swing.JInternalFrame {
         
         cargarCombo();   
         jRInscripSi.setSelected(true);
+        //Hago un evento que escuche al seleccinar un item
         jcbSelecAlumno.addItemListener(new ItemListener() {
             @Override
             public void itemStateChanged(ItemEvent ie) {
+                //comparo el estado de cambio es un evento tipo seleccion
                 if (ie.getStateChange() == ItemEvent.SELECTED) {
                     jRInscripSi.setSelected(true);
                     alumnoSeleccionado = (AlumnoEntidades) jcbSelecAlumno.getSelectedItem();
@@ -49,6 +51,7 @@ public class InscripcionVista extends javax.swing.JInternalFrame {
                 }
             }
         });
+        // Cambia el estado del boton inscripto
           jRInscripNo.addItemListener(new ItemListener() {
             @Override
             public void itemStateChanged(ItemEvent ie) {
@@ -56,28 +59,36 @@ public class InscripcionVista extends javax.swing.JInternalFrame {
                 cargarTabla();
             }
         });
+          //evento cuando selleciono una fila de la tabla
           jTListarMaterias.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
             @Override
             public void valueChanged(ListSelectionEvent lse) {
+                //Filtra un solo evento y sellecina el ultimo, por eso negado
                 if (!lse.getValueIsAdjusting()) {
                     matSelec = null;
+                    //Si la fila esta vacia el getselecteR me devuelve menos 1
                     int filaSel = jTListarMaterias.getSelectedRow();
                     if (filaSel > -1) {
+                        //guardo el objeto de la materia seleccionada de la fila y columna
                         matSelec =(MateriaEntidades) jTListarMaterias.getValueAt(filaSel, 3);
                     }
                 }
             }
         });
+          // Boton salir
           jBSalir.addActionListener(e -> dispose() );
           
            dibujarTabla();
     }
     
     private void cargarCombo() {
+        //Remuevo para limpiar 
         jcbSelecAlumno.removeAllItems();
+        //Voy recorriendo la lista de alumnos y cada alumno lo cargo en el combo
         for (AlumnoEntidades  al: ad.listarAlumnos()) {
             jcbSelecAlumno.addItem(al);
         }
+        //Pregunto si tiene cargado algun alumno y el primero seleccinado lo guardo en la variable
         if (jcbSelecAlumno.getItemCount()>0) {
             alumnoSeleccionado =(AlumnoEntidades)jcbSelecAlumno.getSelectedItem();
         }
@@ -88,6 +99,7 @@ public class InscripcionVista extends javax.swing.JInternalFrame {
         
         String where;
         modelo.setRowCount(0);
+        //pregunto si el jr esta seleccinado
         if (jRInscripSi.isSelected()) {
             where = "AND m.idMateria IN (SELECT i.idMateria FROM inscripcion i WHERE i.idAlumno = " + alumnoSeleccionado.getIdAlumno()+") ORDER BY m.idMateria";
         }else{
@@ -95,10 +107,13 @@ public class InscripcionVista extends javax.swing.JInternalFrame {
             where= "AND m.idMateria NOT IN (SELECT i.idMateria FROM inscripcion i WHERE i.idAlumno = " + alumnoSeleccionado.getIdAlumno()+") ORDER BY m.idMateria";
         }
         for ( MateriaEntidades mat : md.listarMateriaConWhere(where)) {
+            //le cargo la lista al modelo
          
             modelo.addRow(new Object[]{mat.getIdMateria(),mat.getNombre(),mat.getAnio(),mat});
         }
+        //Pregunto si la cantidad de filas de la tabla es mayor a 0
         if (jTListarMaterias.getRowCount()>0) {
+            //selecciono la primera
             jTListarMaterias.setRowSelectionInterval(0,0);
             matSelec =(MateriaEntidades)jTListarMaterias.getValueAt(0, 3);
             if (jRInscripSi.isSelected()) {
@@ -117,6 +132,7 @@ public class InscripcionVista extends javax.swing.JInternalFrame {
     
     
     private void dibujarTabla() {
+        //traigo el modelo que cree de la tabla visualmente y se lo paso al modelo casteandolo
         modelo =(DefaultTableModel)jTListarMaterias.getModel();
         cargarTabla();
     }
@@ -144,20 +160,25 @@ public class InscripcionVista extends javax.swing.JInternalFrame {
 
         setTitle("Formulario Inscripciones");
 
+        jLabel1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel1.setText("Seleccione un alumno");
 
+        jcbSelecAlumno.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         jcbSelecAlumno.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jcbSelecAlumnoActionPerformed(evt);
             }
         });
 
+        jLabel2.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel2.setText("Listado de materias");
 
         buttonGroup.add(jRInscripNo);
+        jRInscripNo.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jRInscripNo.setText("Materias No inscriptas");
 
         buttonGroup.add(jRInscripSi);
+        jRInscripSi.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jRInscripSi.setText("Materias inscriptas");
 
         jTListarMaterias.setModel(new javax.swing.table.DefaultTableModel(
@@ -186,6 +207,7 @@ public class InscripcionVista extends javax.swing.JInternalFrame {
             jTListarMaterias.getColumnModel().getColumn(3).setMaxWidth(0);
         }
 
+        jBInscribir.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jBInscribir.setText("Inscribir");
         jBInscribir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -193,6 +215,7 @@ public class InscripcionVista extends javax.swing.JInternalFrame {
             }
         });
 
+        jBAnular.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jBAnular.setText("Anular");
         jBAnular.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -200,23 +223,13 @@ public class InscripcionVista extends javax.swing.JInternalFrame {
             }
         });
 
+        jBSalir.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jBSalir.setText("Salir");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(19, 19, 19)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(148, 148, 148)
-                        .addComponent(jcbSelecAlumno, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(294, 294, 294)
-                        .addComponent(jLabel2)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGap(77, 77, 77)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -231,11 +244,22 @@ public class InscripcionVista extends javax.swing.JInternalFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(64, 64, 64)
                 .addComponent(jBInscribir)
-                .addGap(132, 132, 132)
+                .addGap(147, 147, 147)
                 .addComponent(jBAnular)
-                .addGap(141, 141, 141)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jBSalir)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(126, 126, 126))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(19, 19, 19)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(85, 85, 85)
+                        .addComponent(jcbSelecAlumno, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(260, 260, 260)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -257,21 +281,22 @@ public class InscripcionVista extends javax.swing.JInternalFrame {
                     .addComponent(jBInscribir)
                     .addComponent(jBAnular)
                     .addComponent(jBSalir))
-                .addContainerGap(102, Short.MAX_VALUE))
+                .addContainerGap(83, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jcbSelecAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbSelecAlumnoActionPerformed
-//        dibujarTabla();
+//        Borrar metodo
     }//GEN-LAST:event_jcbSelecAlumnoActionPerformed
 
     private void jBInscribirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBInscribirActionPerformed
       int fila = jTListarMaterias.getSelectedRow();
         if (fila >= 0) {
-            System.out.println(matSelec);
+          //  System.out.println(matSelec);
              id.guardarInscripcion(new InscripcionEntidades(alumnoSeleccionado, matSelec, 0));
+             //remuevo la fila seleccinada para actualizar la tabla ni inscriba dos veces 
              modelo.removeRow(fila);
         }
        
