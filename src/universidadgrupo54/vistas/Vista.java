@@ -55,9 +55,10 @@ public class Vista extends javax.swing.JFrame {
         );
         escritorioLayout.setVerticalGroup(
             escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 627, Short.MAX_VALUE)
+            .addGap(0, 613, Short.MAX_VALUE)
         );
 
+        GestionAlumnos.setIcon(new javax.swing.ImageIcon("C:\\Users\\Enzo Torresi\\Desktop\\Iconos\\formulario alumno.png")); // NOI18N
         GestionAlumnos.setText("Alumno");
         GestionAlumnos.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         GestionAlumnos.addActionListener(new java.awt.event.ActionListener() {
@@ -67,6 +68,7 @@ public class Vista extends javax.swing.JFrame {
         });
 
         MenuAlumno.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        MenuAlumno.setIcon(new javax.swing.ImageIcon("C:\\Users\\Enzo Torresi\\Desktop\\Iconos\\buscar alumno.png")); // NOI18N
         MenuAlumno.setText("Formulario de alumno");
         MenuAlumno.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -77,10 +79,12 @@ public class Vista extends javax.swing.JFrame {
 
         jMenuBar1.add(GestionAlumnos);
 
+        jMenu2.setIcon(new javax.swing.ImageIcon("C:\\Users\\Enzo Torresi\\Desktop\\Iconos\\materia.png")); // NOI18N
         jMenu2.setText("Materia");
         jMenu2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
 
         jMMateria.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jMMateria.setIcon(new javax.swing.ImageIcon("C:\\Users\\Enzo Torresi\\Desktop\\Iconos\\form materias.png")); // NOI18N
         jMMateria.setText("Formulario de materia");
         jMMateria.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -91,10 +95,12 @@ public class Vista extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu2);
 
+        jMenu3.setIcon(new javax.swing.ImageIcon("C:\\Users\\Enzo Torresi\\Desktop\\Iconos\\admin_person_user_man_2839.png")); // NOI18N
         jMenu3.setText("Administracion");
         jMenu3.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
 
         jManejoInscripcion.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jManejoInscripcion.setIcon(new javax.swing.ImageIcon("C:\\Users\\Enzo Torresi\\Desktop\\Iconos\\form materias.png")); // NOI18N
         jManejoInscripcion.setText("Manejo de inscripcion");
         jManejoInscripcion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -104,6 +110,7 @@ public class Vista extends javax.swing.JFrame {
         jMenu3.add(jManejoInscripcion);
 
         jActualizacionNotas.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jActualizacionNotas.setIcon(new javax.swing.ImageIcon("C:\\Users\\Enzo Torresi\\Desktop\\Iconos\\form materias.png")); // NOI18N
         jActualizacionNotas.setText("Manipulacion de notas");
         jActualizacionNotas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -114,6 +121,7 @@ public class Vista extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu3);
 
+        jConsultaAlumMateria.setIcon(new javax.swing.ImageIcon("C:\\Users\\Enzo Torresi\\Desktop\\Iconos\\consulta.png")); // NOI18N
         jConsultaAlumMateria.setText("Consultas");
         jConsultaAlumMateria.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jConsultaAlumMateria.addActionListener(new java.awt.event.ActionListener() {
@@ -123,6 +131,7 @@ public class Vista extends javax.swing.JFrame {
         });
 
         jMConsAlumMat.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jMConsAlumMat.setIcon(new javax.swing.ImageIcon("C:\\Users\\Enzo Torresi\\Desktop\\Iconos\\form materias.png")); // NOI18N
         jMConsAlumMat.setText("Alumnos por materia");
         jMConsAlumMat.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -133,11 +142,13 @@ public class Vista extends javax.swing.JFrame {
 
         jMenuBar1.add(jConsultaAlumMateria);
 
+        jMenu1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Enzo Torresi\\Desktop\\Iconos\\sign-emergency-code-sos_14_icon-icons.com_57231.png")); // NOI18N
         jMenu1.setText("Salir");
         jMenu1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
 
         jCheckBoxMenuItem1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jCheckBoxMenuItem1.setText("Salir");
+        jCheckBoxMenuItem1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Enzo Torresi\\Desktop\\Iconos\\sign-emergency-code-sos_14_icon-icons.com_57231.png")); // NOI18N
         jCheckBoxMenuItem1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jCheckBoxMenuItem1ActionPerformed(evt);

@@ -45,7 +45,7 @@
                                   <Component id="jtDocumento" max="32767" attributes="0"/>
                                   <Component id="jTApellido" alignment="0" max="32767" attributes="0"/>
                                   <Component id="jTNombre" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="jDFechaNacimiento" alignment="0" pref="304" max="32767" attributes="0"/>
+                                  <Component id="jDFechaNacimiento" alignment="0" pref="268" max="32767" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="78" max="-2" attributes="0"/>
                               <Component id="jBBuscar" min="-2" max="-2" attributes="0"/>
@@ -60,7 +60,7 @@
                       <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
                       <Component id="jBGuardar" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
-                      <Component id="jBSalir" min="-2" pref="72" max="-2" attributes="0"/>
+                      <Component id="jBSalir" min="-2" pref="138" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace min="-2" pref="63" max="-2" attributes="0"/>
@@ -109,7 +109,7 @@
                   <Component id="jBGuardar" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jBSalir" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="0" pref="92" max="32767" attributes="0"/>
+              <EmptySpace min="0" pref="76" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -204,6 +204,9 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Dialog" size="18" style="1"/>
         </Property>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="2" name="C:\Users\Enzo Torresi\Desktop\Iconos\new_add_insert_file_13948.png"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Nuevo"/>
       </Properties>
       <Events>
@@ -214,6 +217,9 @@
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Dialog" size="18" style="1"/>
+        </Property>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="2" name="C:\Users\Enzo Torresi\Desktop\Iconos\32officeicons-3_89720.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Eliminar"/>
         <Property name="enabled" type="boolean" value="false"/>
@@ -227,6 +233,9 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Dialog" size="18" style="1"/>
         </Property>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="2" name="C:\Users\Enzo Torresi\Desktop\Iconos\Save_37110 (1).png"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Guardar"/>
         <Property name="enabled" type="boolean" value="false"/>
       </Properties>
@@ -239,6 +248,9 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Dialog" size="18" style="1"/>
         </Property>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="2" name="C:\Users\Enzo Torresi\Desktop\Iconos\sign-emergency-code-sos_14_icon-icons.com_57231.png"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Salir"/>
       </Properties>
       <Events>
@@ -249,6 +261,9 @@
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Dialog" size="18" style="1"/>
+        </Property>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="2" name="C:\Users\Enzo Torresi\Desktop\Iconos\buscar alumno.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Buscar"/>
       </Properties>

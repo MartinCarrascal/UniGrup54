@@ -92,6 +92,7 @@ public class AlumnoVista extends javax.swing.JInternalFrame {
         jREstado.setEnabled(false);
 
         jbNuevo.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jbNuevo.setIcon(new javax.swing.ImageIcon("C:\\Users\\Enzo Torresi\\Desktop\\Iconos\\new_add_insert_file_13948.png")); // NOI18N
         jbNuevo.setText("Nuevo");
         jbNuevo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -100,6 +101,7 @@ public class AlumnoVista extends javax.swing.JInternalFrame {
         });
 
         jBEliminar.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jBEliminar.setIcon(new javax.swing.ImageIcon("C:\\Users\\Enzo Torresi\\Desktop\\Iconos\\32officeicons-3_89720.png")); // NOI18N
         jBEliminar.setText("Eliminar");
         jBEliminar.setEnabled(false);
         jBEliminar.addActionListener(new java.awt.event.ActionListener() {
@@ -109,6 +111,7 @@ public class AlumnoVista extends javax.swing.JInternalFrame {
         });
 
         jBGuardar.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jBGuardar.setIcon(new javax.swing.ImageIcon("C:\\Users\\Enzo Torresi\\Desktop\\Iconos\\Save_37110 (1).png")); // NOI18N
         jBGuardar.setText("Guardar");
         jBGuardar.setEnabled(false);
         jBGuardar.addActionListener(new java.awt.event.ActionListener() {
@@ -118,6 +121,7 @@ public class AlumnoVista extends javax.swing.JInternalFrame {
         });
 
         jBSalir.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jBSalir.setIcon(new javax.swing.ImageIcon("C:\\Users\\Enzo Torresi\\Desktop\\Iconos\\sign-emergency-code-sos_14_icon-icons.com_57231.png")); // NOI18N
         jBSalir.setText("Salir");
         jBSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -126,6 +130,7 @@ public class AlumnoVista extends javax.swing.JInternalFrame {
         });
 
         jBBuscar.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jBBuscar.setIcon(new javax.swing.ImageIcon("C:\\Users\\Enzo Torresi\\Desktop\\Iconos\\buscar alumno.png")); // NOI18N
         jBBuscar.setText("Buscar");
         jBBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -155,7 +160,7 @@ public class AlumnoVista extends javax.swing.JInternalFrame {
                                     .addComponent(jtDocumento)
                                     .addComponent(jTApellido)
                                     .addComponent(jTNombre)
-                                    .addComponent(jDFechaNacimiento, javax.swing.GroupLayout.DEFAULT_SIZE, 304, Short.MAX_VALUE))
+                                    .addComponent(jDFechaNacimiento, javax.swing.GroupLayout.DEFAULT_SIZE, 268, Short.MAX_VALUE))
                                 .addGap(78, 78, 78)
                                 .addComponent(jBBuscar))))
                     .addGroup(layout.createSequentialGroup()
@@ -166,7 +171,7 @@ public class AlumnoVista extends javax.swing.JInternalFrame {
                         .addGap(33, 33, 33)
                         .addComponent(jBGuardar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jBSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jBSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(63, 63, 63))
             .addGroup(layout.createSequentialGroup()
                 .addGap(351, 351, 351)
@@ -204,7 +209,7 @@ public class AlumnoVista extends javax.swing.JInternalFrame {
                     .addComponent(jBEliminar)
                     .addComponent(jBGuardar)
                     .addComponent(jBSalir))
-                .addGap(0, 92, Short.MAX_VALUE))
+                .addGap(0, 76, Short.MAX_VALUE))
         );
 
         pack();

@@ -79,10 +79,18 @@ public class ManejoDeInscripcion extends javax.swing.JInternalFrame {
         ));
         jScrollPane1.setViewportView(jTMaterias);
 
+        jbinscribir.setIcon(new javax.swing.ImageIcon("C:\\Users\\Enzo Torresi\\Desktop\\Iconos\\inscribir2.png")); // NOI18N
         jbinscribir.setText("Inscribir");
 
+        jbanularins.setIcon(new javax.swing.ImageIcon("C:\\Users\\Enzo Torresi\\Desktop\\Iconos\\noInscribir.png")); // NOI18N
         jbanularins.setText("Anular inscripcion");
+        jbanularins.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbanularinsActionPerformed(evt);
+            }
+        });
 
+        jbsalir.setIcon(new javax.swing.ImageIcon("C:\\Users\\Enzo Torresi\\Desktop\\Iconos\\sign-emergency-code-sos_14_icon-icons.com_57231.png")); // NOI18N
         jbsalir.setText("Salir");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -117,9 +125,9 @@ public class ManejoDeInscripcion extends javax.swing.JInternalFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jbinscribir)
-                                .addGap(83, 83, 83)
-                                .addComponent(jbanularins)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jbanularins)
+                                .addGap(50, 50, 50)
                                 .addComponent(jbsalir))
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(33, Short.MAX_VALUE))
@@ -144,7 +152,7 @@ public class ManejoDeInscripcion extends javax.swing.JInternalFrame {
                     .addComponent(jrbmatnoinscriptas))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jbinscribir)
                     .addComponent(jbanularins)
@@ -159,6 +167,10 @@ public class ManejoDeInscripcion extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
         
     }//GEN-LAST:event_JCBAlumnosActionPerformed
+
+    private void jbanularinsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbanularinsActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jbanularinsActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

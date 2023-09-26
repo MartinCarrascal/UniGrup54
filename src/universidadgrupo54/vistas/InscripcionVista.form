@@ -62,7 +62,7 @@
               <EmptySpace min="-2" pref="132" max="-2" attributes="0"/>
               <Component id="jBAnular" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="141" max="-2" attributes="0"/>
-              <Component id="jBSalir" min="-2" max="-2" attributes="0"/>
+              <Component id="jBSalir" min="-2" pref="107" max="-2" attributes="0"/>
               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
           </Group>
       </Group>
@@ -90,7 +90,7 @@
                   <Component id="jBAnular" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jBSalir" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="102" max="32767" attributes="0"/>
+              <EmptySpace pref="86" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -185,6 +185,9 @@
     </Container>
     <Component class="javax.swing.JButton" name="jBInscribir">
       <Properties>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="2" name="C:\Users\Enzo Torresi\Desktop\Iconos\inscribir2.png"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Inscribir"/>
       </Properties>
       <Events>
@@ -193,6 +196,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="jBAnular">
       <Properties>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="2" name="C:\Users\Enzo Torresi\Desktop\Iconos\noInscribir.png"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Anular"/>
       </Properties>
       <Events>
@@ -201,6 +207,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="jBSalir">
       <Properties>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="2" name="C:\Users\Enzo Torresi\Desktop\Iconos\sign-emergency-code-sos_14_icon-icons.com_57231.png"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Salir"/>
       </Properties>
     </Component>

@@ -186,6 +186,7 @@ public class InscripcionVista extends javax.swing.JInternalFrame {
             jTListarMaterias.getColumnModel().getColumn(3).setMaxWidth(0);
         }
 
+        jBInscribir.setIcon(new javax.swing.ImageIcon("C:\\Users\\Enzo Torresi\\Desktop\\Iconos\\inscribir2.png")); // NOI18N
         jBInscribir.setText("Inscribir");
         jBInscribir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -193,6 +194,7 @@ public class InscripcionVista extends javax.swing.JInternalFrame {
             }
         });
 
+        jBAnular.setIcon(new javax.swing.ImageIcon("C:\\Users\\Enzo Torresi\\Desktop\\Iconos\\noInscribir.png")); // NOI18N
         jBAnular.setText("Anular");
         jBAnular.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -200,6 +202,7 @@ public class InscripcionVista extends javax.swing.JInternalFrame {
             }
         });
 
+        jBSalir.setIcon(new javax.swing.ImageIcon("C:\\Users\\Enzo Torresi\\Desktop\\Iconos\\sign-emergency-code-sos_14_icon-icons.com_57231.png")); // NOI18N
         jBSalir.setText("Salir");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -234,7 +237,7 @@ public class InscripcionVista extends javax.swing.JInternalFrame {
                 .addGap(132, 132, 132)
                 .addComponent(jBAnular)
                 .addGap(141, 141, 141)
-                .addComponent(jBSalir)
+                .addComponent(jBSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -257,7 +260,7 @@ public class InscripcionVista extends javax.swing.JInternalFrame {
                     .addComponent(jBInscribir)
                     .addComponent(jBAnular)
                     .addComponent(jBSalir))
-                .addContainerGap(102, Short.MAX_VALUE))
+                .addContainerGap(86, Short.MAX_VALUE))
         );
 
         pack();
