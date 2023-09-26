@@ -94,6 +94,7 @@ public class AlumnoVista extends javax.swing.JInternalFrame {
         jREstado.setEnabled(false);
 
         jbNuevo.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jbNuevo.setIcon(new javax.swing.ImageIcon("C:\\Users\\Pablo\\Desktop\\imagenProyecto\\new_add_insert_file_13948.png")); // NOI18N
         jbNuevo.setText("Nuevo");
         jbNuevo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -102,6 +103,7 @@ public class AlumnoVista extends javax.swing.JInternalFrame {
         });
 
         jBEliminar.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jBEliminar.setIcon(new javax.swing.ImageIcon("C:\\Users\\Pablo\\Desktop\\imagenProyecto\\32officeicons-3_89720.png")); // NOI18N
         jBEliminar.setText("Eliminar");
         jBEliminar.setEnabled(false);
         jBEliminar.addActionListener(new java.awt.event.ActionListener() {
@@ -111,6 +113,7 @@ public class AlumnoVista extends javax.swing.JInternalFrame {
         });
 
         jBGuardar.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jBGuardar.setIcon(new javax.swing.ImageIcon("C:\\Users\\Pablo\\Desktop\\imagenProyecto\\Save_37110 (1).png")); // NOI18N
         jBGuardar.setText("Guardar");
         jBGuardar.setEnabled(false);
         jBGuardar.addActionListener(new java.awt.event.ActionListener() {
@@ -120,6 +123,7 @@ public class AlumnoVista extends javax.swing.JInternalFrame {
         });
 
         jBSalir.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jBSalir.setIcon(new javax.swing.ImageIcon("C:\\Users\\Pablo\\Desktop\\imagenProyecto\\sign-emergency-code-sos_14_icon-icons.com_57231.png")); // NOI18N
         jBSalir.setText("Salir");
         jBSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -128,6 +132,7 @@ public class AlumnoVista extends javax.swing.JInternalFrame {
         });
 
         jBBuscar.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jBBuscar.setIcon(new javax.swing.ImageIcon("C:\\Users\\Pablo\\Desktop\\imagenProyecto\\buscar alumno.png")); // NOI18N
         jBBuscar.setText("Buscar");
         jBBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -136,6 +141,7 @@ public class AlumnoVista extends javax.swing.JInternalFrame {
         });
 
         jBCancelar.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jBCancelar.setIcon(new javax.swing.ImageIcon("C:\\Users\\Pablo\\Desktop\\imagenProyecto\\cancel.png")); // NOI18N
         jBCancelar.setText("Cancelar");
         jBCancelar.setEnabled(false);
         jBCancelar.addActionListener(new java.awt.event.ActionListener() {
@@ -149,43 +155,40 @@ public class AlumnoVista extends javax.swing.JInternalFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel5)
+                    .addComponent(jLabel6))
+                .addGap(73, 73, 73)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jREstado)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel6))
-                        .addGap(73, 73, 73)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jREstado)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jtDocumento)
-                                    .addComponent(jTApellido)
-                                    .addComponent(jTNombre)
-                                    .addComponent(jDFechaNacimiento, javax.swing.GroupLayout.DEFAULT_SIZE, 304, Short.MAX_VALUE))
-                                .addGap(78, 78, 78)
-                                .addComponent(jBBuscar))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(66, 66, 66)
-                        .addComponent(jbNuevo)
-                        .addGap(31, 31, 31)
-                        .addComponent(jBEliminar)
-                        .addGap(33, 33, 33)
-                        .addComponent(jBGuardar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jBSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jtDocumento)
+                            .addComponent(jTApellido)
+                            .addComponent(jTNombre)
+                            .addComponent(jDFechaNacimiento, javax.swing.GroupLayout.DEFAULT_SIZE, 268, Short.MAX_VALUE))
+                        .addGap(78, 78, 78)
+                        .addComponent(jBBuscar)))
                 .addGap(63, 63, 63))
             .addGroup(layout.createSequentialGroup()
                 .addGap(351, 351, 351)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jBCancelar)
+                .addGap(66, 66, 66)
+                .addComponent(jbNuevo)
+                .addGap(31, 31, 31)
+                .addComponent(jBEliminar)
+                .addGap(33, 33, 33)
+                .addComponent(jBGuardar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jBCancelar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jBSalir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(41, 41, 41))
         );
         layout.setVerticalGroup(
@@ -221,7 +224,7 @@ public class AlumnoVista extends javax.swing.JInternalFrame {
                     .addComponent(jBEliminar)
                     .addComponent(jBGuardar)
                     .addComponent(jBSalir))
-                .addGap(0, 84, Short.MAX_VALUE))
+                .addGap(0, 60, Short.MAX_VALUE))
         );
 
         pack();

@@ -88,6 +88,7 @@ public class MateriaVista extends javax.swing.JInternalFrame {
         jREstadoMat.setEnabled(false);
 
         jBNuevoMat.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jBNuevoMat.setIcon(new javax.swing.ImageIcon("C:\\Users\\Pablo\\Desktop\\imagenProyecto\\new_add_insert_file_13948.png")); // NOI18N
         jBNuevoMat.setText("Nuevo");
         jBNuevoMat.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -96,6 +97,7 @@ public class MateriaVista extends javax.swing.JInternalFrame {
         });
 
         jBEliminarMat.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jBEliminarMat.setIcon(new javax.swing.ImageIcon("C:\\Users\\Pablo\\Desktop\\imagenProyecto\\32officeicons-3_89720.png")); // NOI18N
         jBEliminarMat.setText("Eliminar");
         jBEliminarMat.setEnabled(false);
         jBEliminarMat.addActionListener(new java.awt.event.ActionListener() {
@@ -105,6 +107,7 @@ public class MateriaVista extends javax.swing.JInternalFrame {
         });
 
         jBGuardarMat.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jBGuardarMat.setIcon(new javax.swing.ImageIcon("C:\\Users\\Pablo\\Desktop\\imagenProyecto\\Save_37110 (1).png")); // NOI18N
         jBGuardarMat.setText("Guardar");
         jBGuardarMat.setEnabled(false);
         jBGuardarMat.addActionListener(new java.awt.event.ActionListener() {
@@ -114,6 +117,7 @@ public class MateriaVista extends javax.swing.JInternalFrame {
         });
 
         jBSalirMat.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jBSalirMat.setIcon(new javax.swing.ImageIcon("C:\\Users\\Pablo\\Desktop\\imagenProyecto\\sign-emergency-code-sos_14_icon-icons.com_57231.png")); // NOI18N
         jBSalirMat.setText("Salir");
         jBSalirMat.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -122,6 +126,7 @@ public class MateriaVista extends javax.swing.JInternalFrame {
         });
 
         jBBuscarMat.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jBBuscarMat.setIcon(new javax.swing.ImageIcon("C:\\Users\\Pablo\\Desktop\\imagenProyecto\\buscar alumno.png")); // NOI18N
         jBBuscarMat.setText("Buscar");
         jBBuscarMat.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -130,6 +135,7 @@ public class MateriaVista extends javax.swing.JInternalFrame {
         });
 
         jBCancelar.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jBCancelar.setIcon(new javax.swing.ImageIcon("C:\\Users\\Pablo\\Desktop\\imagenProyecto\\cancel.png")); // NOI18N
         jBCancelar.setText("Cancelar");
         jBCancelar.setEnabled(false);
         jBCancelar.addActionListener(new java.awt.event.ActionListener() {
@@ -150,7 +156,7 @@ public class MateriaVista extends javax.swing.JInternalFrame {
                     .addComponent(jLabel4)
                     .addComponent(jLabel5)
                     .addComponent(jBNuevoMat, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(57, 57, 57)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -168,10 +174,8 @@ public class MateriaVista extends javax.swing.JInternalFrame {
                         .addGap(18, 18, 18)
                         .addComponent(jBGuardarMat)
                         .addGap(30, 30, 30)
-                        .addComponent(jBEliminarMat)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jBSalirMat)))
-                .addGap(0, 70, Short.MAX_VALUE))
+                        .addComponent(jBEliminarMat)))
+                .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -179,7 +183,9 @@ public class MateriaVista extends javax.swing.JInternalFrame {
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(310, 310, 310))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jBCancelar)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jBCancelar)
+                            .addComponent(jBSalirMat, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(49, 49, 49))))
         );
         layout.setVerticalGroup(
@@ -204,7 +210,7 @@ public class MateriaVista extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jREstadoMat)
                     .addComponent(jLabel5))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
                 .addComponent(jBCancelar)
                 .addGap(43, 43, 43)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)

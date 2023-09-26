@@ -208,6 +208,7 @@ public class InscripcionVista extends javax.swing.JInternalFrame {
         }
 
         jBInscribir.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jBInscribir.setIcon(new javax.swing.ImageIcon("C:\\Users\\Pablo\\Desktop\\imagenProyecto\\inscribir2.png")); // NOI18N
         jBInscribir.setText("Inscribir");
         jBInscribir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -216,6 +217,7 @@ public class InscripcionVista extends javax.swing.JInternalFrame {
         });
 
         jBAnular.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jBAnular.setIcon(new javax.swing.ImageIcon("C:\\Users\\Pablo\\Desktop\\imagenProyecto\\noInscribir.png")); // NOI18N
         jBAnular.setText("Anular");
         jBAnular.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -224,6 +226,7 @@ public class InscripcionVista extends javax.swing.JInternalFrame {
         });
 
         jBSalir.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jBSalir.setIcon(new javax.swing.ImageIcon("C:\\Users\\Pablo\\Desktop\\imagenProyecto\\sign-emergency-code-sos_14_icon-icons.com_57231.png")); // NOI18N
         jBSalir.setText("Salir");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -244,11 +247,11 @@ public class InscripcionVista extends javax.swing.JInternalFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(64, 64, 64)
                 .addComponent(jBInscribir)
-                .addGap(147, 147, 147)
+                .addGap(116, 116, 116)
                 .addComponent(jBAnular)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jBSalir)
-                .addGap(126, 126, 126))
+                .addComponent(jBSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(98, 98, 98))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -281,7 +284,7 @@ public class InscripcionVista extends javax.swing.JInternalFrame {
                     .addComponent(jBInscribir)
                     .addComponent(jBAnular)
                     .addComponent(jBSalir))
-                .addContainerGap(83, Short.MAX_VALUE))
+                .addContainerGap(75, Short.MAX_VALUE))
         );
 
         pack();

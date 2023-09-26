@@ -68,6 +68,7 @@ public class ConsultaAlumnosPorMateriaVista extends javax.swing.JInternalFrame {
         });
 
         jBSalida.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jBSalida.setIcon(new javax.swing.ImageIcon("C:\\Users\\Pablo\\Desktop\\imagenProyecto\\sign-emergency-code-sos_14_icon-icons.com_57231.png")); // NOI18N
         jBSalida.setText("Salida");
         jBSalida.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

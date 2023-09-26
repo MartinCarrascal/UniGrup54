@@ -55,9 +55,10 @@ public class Vista extends javax.swing.JFrame {
         );
         escritorioLayout.setVerticalGroup(
             escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 627, Short.MAX_VALUE)
+            .addGap(0, 613, Short.MAX_VALUE)
         );
 
+        GestionAlumnos.setIcon(new javax.swing.ImageIcon("C:\\Users\\Pablo\\Desktop\\imagenProyecto\\formulario alumno.png")); // NOI18N
         GestionAlumnos.setText("Alumno");
         GestionAlumnos.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         GestionAlumnos.addActionListener(new java.awt.event.ActionListener() {
@@ -77,6 +78,7 @@ public class Vista extends javax.swing.JFrame {
 
         jMenuBar1.add(GestionAlumnos);
 
+        jMenu2.setIcon(new javax.swing.ImageIcon("C:\\Users\\Pablo\\Desktop\\imagenProyecto\\form materias.png")); // NOI18N
         jMenu2.setText("Materia");
         jMenu2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
 
@@ -91,6 +93,7 @@ public class Vista extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu2);
 
+        jMenu3.setIcon(new javax.swing.ImageIcon("C:\\Users\\Pablo\\Desktop\\imagenProyecto\\admin_person_user_man_2839.png")); // NOI18N
         jMenu3.setText("Administracion");
         jMenu3.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
 
@@ -114,6 +117,7 @@ public class Vista extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu3);
 
+        jConsultaAlumMateria.setIcon(new javax.swing.ImageIcon("C:\\Users\\Pablo\\Desktop\\imagenProyecto\\consulta.png")); // NOI18N
         jConsultaAlumMateria.setText("Consultas");
         jConsultaAlumMateria.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jConsultaAlumMateria.addActionListener(new java.awt.event.ActionListener() {
@@ -133,6 +137,7 @@ public class Vista extends javax.swing.JFrame {
 
         jMenuBar1.add(jConsultaAlumMateria);
 
+        jMenu1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Pablo\\Desktop\\imagenProyecto\\sign-emergency-code-sos_14_icon-icons.com_57231.png")); // NOI18N
         jMenu1.setText("Salir");
         jMenu1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
 
