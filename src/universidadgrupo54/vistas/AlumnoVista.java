@@ -243,6 +243,7 @@ public class AlumnoVista extends javax.swing.JInternalFrame {
           jtDocumento.setText("");
         jTApellido.setText("");
         jTNombre.setText("");
+        jDFechaNacimiento.setDate(null);
         jREstado.setSelected(false);
         
        // jDFechaNacimiento.cleanup();
