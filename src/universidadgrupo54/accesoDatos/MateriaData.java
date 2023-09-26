@@ -36,7 +36,7 @@ public class MateriaData {
     }
     
      private void mensaje(String mensaje) {
-        JOptionPane.showConfirmDialog(null, mensaje);
+        JOptionPane.showMessageDialog(null, mensaje);
     }
      
      public void guardarMateria(MateriaEntidades materia) {
@@ -45,7 +45,7 @@ public class MateriaData {
          
             try (PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
             ps.setString(1, materia.getNombre());
-            ps.setString(2, materia.getAnio());
+            ps.setInt(2, Integer.parseInt(materia.getAnio()));
             ps.setBoolean(3, materia.isEstado());
             ps.executeUpdate();
             ResultSet rs = ps.getGeneratedKeys();

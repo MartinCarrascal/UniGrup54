@@ -15,16 +15,16 @@ import universidadgrupo54.entidades.MateriaEntidades;
  */
 public class MateriaVista extends javax.swing.JInternalFrame {
 
-    /**
-     * Creates new form Materias
-     */
+   private MateriaEntidades mat;
+   private MateriaData matD;
+    private boolean banderaModificar;
+
     public MateriaVista() {
         initComponents();
+        mat = new MateriaEntidades();
+        matD = new MateriaData();
+        banderaModificar = false;
     }
-
-    MateriaEntidades mat = new MateriaEntidades();
-    MateriaData matD = new MateriaData();
-    boolean banderaModificar = false;
 
     private void mensaje(String mensaje) {
         JOptionPane.showMessageDialog(null, mensaje);
@@ -54,6 +54,7 @@ public class MateriaVista extends javax.swing.JInternalFrame {
         jBGuardarMat = new javax.swing.JButton();
         jBSalirMat = new javax.swing.JButton();
         jBBuscarMat = new javax.swing.JButton();
+        jBCancelar = new javax.swing.JButton();
 
         jTextField2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -128,6 +129,15 @@ public class MateriaVista extends javax.swing.JInternalFrame {
             }
         });
 
+        jBCancelar.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jBCancelar.setText("Cancelar");
+        jBCancelar.setEnabled(false);
+        jBCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBCancelarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -157,15 +167,20 @@ public class MateriaVista extends javax.swing.JInternalFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addComponent(jBGuardarMat)
-                        .addGap(18, 18, 18)
+                        .addGap(30, 30, 30)
                         .addComponent(jBEliminarMat)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jBSalirMat)))
                 .addGap(0, 70, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(310, 310, 310))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(310, 310, 310))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jBCancelar)
+                        .addGap(49, 49, 49))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -189,7 +204,9 @@ public class MateriaVista extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jREstadoMat)
                     .addComponent(jLabel5))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 131, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
+                .addComponent(jBCancelar)
+                .addGap(43, 43, 43)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jBNuevoMat)
                     .addComponent(jBGuardarMat)
@@ -206,75 +223,119 @@ public class MateriaVista extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jTextField2ActionPerformed
 
     private void jBBuscarMatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBBuscarMatActionPerformed
+        
+        
+        
         int codigo = Integer.parseInt(jTCodigo.getText());
         MateriaEntidades mat = matD.buscarMateria(codigo);
         
-        jTNombreMat.setEnabled(true);
+         jTNombreMat.setEnabled(true);
         jTAnio.setEnabled(true);
         jREstadoMat.setEnabled(true);
-        jTNombreMat.setText(mat.getNombre());
-       
-        jTAnio.setText(mat.getAnio());
-        boolean banderaModificar = true;
+        banderaModificar = true;
         jREstadoMat.setSelected(true);
         jBGuardarMat.setEnabled(true);
         jBEliminarMat.setEnabled(true);
+        jTNombreMat.setText(mat.getNombre());
+        jTAnio.setText(mat.getAnio());
+        jTCodigo.setEnabled(false);
+        jBBuscarMat.setEnabled(false);
+        jBCancelar.setEnabled(true);
     }//GEN-LAST:event_jBBuscarMatActionPerformed
 
     private void jBNuevoMatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBNuevoMatActionPerformed
         jTCodigo.setEnabled(false);
         jTAnio.setEnabled(true);
         jTNombreMat.setEnabled(true);
-        jREstadoMat.setEnabled(true);
         jBGuardarMat.setEnabled(true);
-        jTAnio.setText("");
-        jTCodigo.setText("");
-        jTNombreMat.setText("");
+        limpiarCampos();
         jREstadoMat.setSelected(true);
-
+        jREstadoMat.setEnabled(false);
+        banderaModificar = false;
+        jBCancelar.setEnabled(true);
+        jBEliminarMat.setEnabled(false);
+        
 
     }//GEN-LAST:event_jBNuevoMatActionPerformed
 
     private void jBGuardarMatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBGuardarMatActionPerformed
         jREstadoMat.setSelected(false);
+        
 
         if (mat.getNombre() == jTNombreMat.getText()) {
             mensaje("Esa materia ya existe");
-        } else if (banderaModificar = true) {
             
-            //int idMateria = jTCodigo.getText();
-            String nombre = jTNombreMat.getText();
-           
-            String anio = jTAnio.getText();
-                       
-            //MateriaEntidades mat = new MateriaEntidades(idMateria, nombre, anio, true);
-            MateriaEntidades mat = new MateriaEntidades( nombre, anio, true);
-            matD.guardarMateria(mat);
+        } else if (!banderaModificar) {
             
-        } else {
             String nombre = jTNombreMat.getText();
             String anio = jTAnio.getText();
             MateriaEntidades mat = new MateriaEntidades(nombre, anio, true);
             matD.guardarMateria(mat);
+            
+          } else {
+             
+            MateriaEntidades mat = new MateriaEntidades();
+           
+            mat.setNombre(jTNombreMat.getText());
+            mat.setAnio(jTAnio.getText());
+            mat.setIdMateria(Integer.parseInt(jTCodigo.getText()));
+            matD.modificarMateria(mat);
         }
+        limpiarCampos();
+        jBBuscarMat.setEnabled(true);
+        jTCodigo.setEnabled(true);
+        jTNombreMat.setEnabled(false);
+        jTAnio.setEnabled(false);
+        jREstadoMat.setEnabled(false);
+        jBCancelar.setEnabled(false);
+        jBEliminarMat.setEnabled(false);
+        jBGuardarMat.setEnabled(false);
     }//GEN-LAST:event_jBGuardarMatActionPerformed
 
     private void jBEliminarMatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBEliminarMatActionPerformed
         int idMateria = Integer.parseInt(jTCodigo.getText());
         matD.eliminarMateria(idMateria);
-        jTAnio.setText("");
-        jTCodigo.setText("");
-        jTNombreMat.setText("");
-        jREstadoMat.setSelected(false);
+        limpiarCampos();
+         jBBuscarMat.setEnabled(true);
+        jTCodigo.setEnabled(true);
+        jTNombreMat.setEnabled(false);
+        jTAnio.setEnabled(false);
+        jREstadoMat.setEnabled(false);
+        jBCancelar.setEnabled(false);
+        jBEliminarMat.setEnabled(false);
+        jBGuardarMat.setEnabled(false);
+        
     }//GEN-LAST:event_jBEliminarMatActionPerformed
 
     private void jBSalirMatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBSalirMatActionPerformed
         dispose();
     }//GEN-LAST:event_jBSalirMatActionPerformed
 
+    private void jBCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBCancelarActionPerformed
+   
+         limpiarCampos();
+        jBBuscarMat.setEnabled(true);
+        jTCodigo.setEnabled(true);
+        jTNombreMat.setEnabled(false);
+        jTAnio.setEnabled(false);
+        jREstadoMat.setEnabled(false);
+        jBCancelar.setEnabled(false);
+        jBEliminarMat.setEnabled(false);
+        jBGuardarMat.setEnabled(false);
+        
+    }//GEN-LAST:event_jBCancelarActionPerformed
+
+    private void limpiarCampos() {
+        jTCodigo.setText("");
+        jTNombreMat.setText("");
+        jTAnio.setText("");
+        jREstadoMat.setSelected(false);
+        
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBBuscarMat;
+    private javax.swing.JButton jBCancelar;
     private javax.swing.JButton jBEliminarMat;
     private javax.swing.JButton jBGuardarMat;
     private javax.swing.JButton jBNuevoMat;

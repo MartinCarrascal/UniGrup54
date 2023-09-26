@@ -42,7 +42,8 @@ public class Vista extends javax.swing.JFrame {
         jActualizacionNotas = new javax.swing.JMenuItem();
         jConsultaAlumMateria = new javax.swing.JMenu();
         jMConsAlumMat = new javax.swing.JMenuItem();
-        jMenu5 = new javax.swing.JMenu();
+        jMenu1 = new javax.swing.JMenu();
+        jCheckBoxMenuItem1 = new javax.swing.JCheckBoxMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -132,14 +133,19 @@ public class Vista extends javax.swing.JFrame {
 
         jMenuBar1.add(jConsultaAlumMateria);
 
-        jMenu5.setText("Salir");
-        jMenu5.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jMenu5.addActionListener(new java.awt.event.ActionListener() {
+        jMenu1.setText("Salir");
+        jMenu1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+
+        jCheckBoxMenuItem1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jCheckBoxMenuItem1.setText("Salir");
+        jCheckBoxMenuItem1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenu5ActionPerformed(evt);
+                jCheckBoxMenuItem1ActionPerformed(evt);
             }
         });
-        jMenuBar1.add(jMenu5);
+        jMenu1.add(jCheckBoxMenuItem1);
+
+        jMenuBar1.add(jMenu1);
 
         setJMenuBar(jMenuBar1);
 
@@ -219,9 +225,9 @@ public class Vista extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jConsultaAlumMateriaActionPerformed
 
-    private void jMenu5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu5ActionPerformed
-    // ver como salir desde este boton  
-    }//GEN-LAST:event_jMenu5ActionPerformed
+    private void jCheckBoxMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxMenuItem1ActionPerformed
+       dispose();
+    }//GEN-LAST:event_jCheckBoxMenuItem1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -263,13 +269,14 @@ public class Vista extends javax.swing.JFrame {
     private javax.swing.JMenuItem MenuAlumno;
     private javax.swing.JDesktopPane escritorio;
     private javax.swing.JMenuItem jActualizacionNotas;
+    private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
     private javax.swing.JMenu jConsultaAlumMateria;
     private javax.swing.JMenuItem jMConsAlumMat;
     private javax.swing.JMenuItem jMMateria;
     private javax.swing.JMenuItem jManejoInscripcion;
+    private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
-    private javax.swing.JMenu jMenu5;
     private javax.swing.JMenuBar jMenuBar1;
     // End of variables declaration//GEN-END:variables
 }

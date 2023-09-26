@@ -19,14 +19,14 @@ import universidadgrupo54.entidades.AlumnoEntidades;
 public class AlumnoVista extends javax.swing.JInternalFrame {
 
     private boolean esNuevo;
+
     public AlumnoVista() {
         initComponents();
     }
-   
+
     AlumnoData aluD = new AlumnoData();
     AlumnoEntidades alum = new AlumnoEntidades();
-    
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -211,85 +211,86 @@ public class AlumnoVista extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jbNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbNuevoActionPerformed
-       jtDocumento.setEnabled(true);
-       jTNombre.setEnabled(true);
-       jTApellido.setEnabled(true);
-       jDFechaNacimiento.setEnabled(true);
-       esNuevo = true;
-       jREstado.setEnabled(true);
-       jREstado.setSelected(true);
-       jBGuardar.setEnabled(true);
-       
-       
+        jtDocumento.setEnabled(true);
+        jTNombre.setEnabled(true);
+        jTApellido.setEnabled(true);
+        jDFechaNacimiento.setEnabled(true);
+        esNuevo = true;
+        jREstado.setEnabled(true);
+        jREstado.setSelected(true);
+        jBGuardar.setEnabled(true);
+
+
     }//GEN-LAST:event_jbNuevoActionPerformed
 
     private void jBGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBGuardarActionPerformed
-       // int iDAlu = Integer.parseInt(jTId.getText());
-        
+
         int dni = Integer.parseInt(jtDocumento.getText());
-        String nombre = jTNombre.getText();
-        String apellido = jTApellido.getText();
-        LocalDate fechaNueva = jDFechaNacimiento.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
-       // Date fechaNacimiento = jDFechaNacimiento.getDate();
-        if (esNuevo ) {
+
+        if (esNuevo) {
+            String nombre = jTNombre.getText();
+            String apellido = jTApellido.getText();
+            LocalDate fechaNueva = jDFechaNacimiento.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
             AlumnoEntidades alum = new AlumnoEntidades(dni, apellido, nombre, fechaNueva, true);
-        aluD.guardarAlumno(alum);
-      
-        }else{
-        AlumnoEntidades alum = new AlumnoEntidades(dni, apellido, nombre, fechaNueva, true);
-         aluD.modificarAlumno(alum);
-         
+            aluD.guardarAlumno(alum);
+
+        } else {
+            AlumnoEntidades alum = aluD.buscarAlumnoPorDni(dni);
+            alum.setApellido(jTApellido.getText());
+            alum.setNombre(jTNombre.getText());
+            alum.setEstado(true);
+            LocalDate fechaNueva = jDFechaNacimiento.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+
+            aluD.modificarAlumno(alum);
+
         }
-          jtDocumento.setText("");
+        jtDocumento.setText("");
         jTApellido.setText("");
         jTNombre.setText("");
         jREstado.setSelected(false);
-        
-       // jDFechaNacimiento.cleanup();
-       
-        
+
     }//GEN-LAST:event_jBGuardarActionPerformed
 
     private void jDFechaNacimientoPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jDFechaNacimientoPropertyChange
-      //elimnar metodo
+        //elimnar metodo
     }//GEN-LAST:event_jDFechaNacimientoPropertyChange
 
     private void jBBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBBuscarActionPerformed
         esNuevo = false;
         int documento = Integer.parseInt(jtDocumento.getText());
+
+        AlumnoEntidades alu = aluD.buscarAlumnoPorDni(documento);
        
-      AlumnoEntidades alu = aluD.buscarAlumnoPorDni(documento); 
-     // jTId.setText("" +alu.getIdAlumno() );
-      jTApellido.setEnabled(true);
-      jTNombre.setEnabled(true);
-      jDFechaNacimiento.setEnabled(true);
-      
-      jREstado.setEnabled(true);
-      jTApellido.setText(alu.getApellido());
-      jTNombre.setText(alu.getNombre());
-      
-      jBEliminar.setEnabled(true);
-      jREstado.setSelected(alu.isEstado());
-      jDFechaNacimiento.setDate(Date.from(alu.getFechaNacimiento().atStartOfDay(ZoneId.systemDefault()).toInstant()));
-      jBGuardar.setEnabled(true);
+        jTApellido.setEnabled(true);
+        jTNombre.setEnabled(true);
+        jDFechaNacimiento.setEnabled(true);
+
+        jREstado.setEnabled(true);
+        jTApellido.setText(alu.getApellido());
+        jTNombre.setText(alu.getNombre());
+
+        jBEliminar.setEnabled(true);
+        jREstado.setSelected(alu.isEstado());
+        jDFechaNacimiento.setDate(Date.from(alu.getFechaNacimiento().atStartOfDay(ZoneId.systemDefault()).toInstant()));
+        jBGuardar.setEnabled(true);
     }//GEN-LAST:event_jBBuscarActionPerformed
 
     private void jBEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBEliminarActionPerformed
-   
+
         int documento = Integer.parseInt(jtDocumento.getText());
-         AlumnoEntidades al = aluD.buscarAlumnoPorDni(documento); 
-      
-         int idAlu = al.getIdAlumno();
-         aluD.eliminarAlumno(idAlu);
-         jTApellido.setText("");
-         jtDocumento.setText("");
-         jTNombre.setText("");
-         jREstado.setSelected(false);
-         jBEliminar.setEnabled(false);
+        AlumnoEntidades al = aluD.buscarAlumnoPorDni(documento);
+
+        int idAlu = al.getIdAlumno();
+        aluD.eliminarAlumno(idAlu);
+        jTApellido.setText("");
+        jtDocumento.setText("");
+        jTNombre.setText("");
+        jREstado.setSelected(false);
+        jBEliminar.setEnabled(false);
     }//GEN-LAST:event_jBEliminarActionPerformed
 
     private void jBSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBSalirActionPerformed
-       dispose();
+        dispose();
     }//GEN-LAST:event_jBSalirActionPerformed
 
 
