@@ -157,30 +157,32 @@ public class InscripcionVista extends javax.swing.JInternalFrame {
         jBInscribir = new javax.swing.JButton();
         jBAnular = new javax.swing.JButton();
         jBSalir = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
 
         setTitle("Formulario Inscripciones");
 
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel1.setText("Seleccione un alumno");
 
-        jcbSelecAlumno.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jcbSelecAlumno.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         jcbSelecAlumno.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jcbSelecAlumnoActionPerformed(evt);
             }
         });
 
-        jLabel2.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         jLabel2.setText("Listado de materias");
 
         buttonGroup.add(jRInscripNo);
-        jRInscripNo.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jRInscripNo.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jRInscripNo.setText("Materias No inscriptas");
 
         buttonGroup.add(jRInscripSi);
-        jRInscripSi.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jRInscripSi.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jRInscripSi.setText("Materias inscriptas");
 
+        jTListarMaterias.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         jTListarMaterias.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -208,7 +210,7 @@ public class InscripcionVista extends javax.swing.JInternalFrame {
         }
 
         jBInscribir.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jBInscribir.setIcon(new javax.swing.ImageIcon("C:\\Users\\Pablo\\Desktop\\imagenProyecto\\inscribir2.png")); // NOI18N
+        jBInscribir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/inscribir.png"))); // NOI18N
         jBInscribir.setText("Inscribir");
         jBInscribir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -217,7 +219,7 @@ public class InscripcionVista extends javax.swing.JInternalFrame {
         });
 
         jBAnular.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jBAnular.setIcon(new javax.swing.ImageIcon("C:\\Users\\Pablo\\Desktop\\imagenProyecto\\noInscribir.png")); // NOI18N
+        jBAnular.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/cancel.png"))); // NOI18N
         jBAnular.setText("Anular");
         jBAnular.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -226,65 +228,67 @@ public class InscripcionVista extends javax.swing.JInternalFrame {
         });
 
         jBSalir.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jBSalir.setIcon(new javax.swing.ImageIcon("C:\\Users\\Pablo\\Desktop\\imagenProyecto\\sign-emergency-code-sos_14_icon-icons.com_57231.png")); // NOI18N
+        jBSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Salir.png"))); // NOI18N
         jBSalir.setText("Salir");
+
+        jLabel3.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jLabel3.setText("FORMULARIO DE INSCRIPCIONES");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(77, 77, 77)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 587, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(106, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jRInscripSi)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jRInscripNo)
-                        .addGap(144, 144, 144))))
+                .addGap(261, 261, 261)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGap(64, 64, 64)
-                .addComponent(jBInscribir)
-                .addGap(116, 116, 116)
-                .addComponent(jBAnular)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jBSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(98, 98, 98))
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(jBSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(19, 19, 19)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(85, 85, 85)
-                        .addComponent(jcbSelecAlumno, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(260, 260, 260)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(jRInscripSi, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(192, 192, 192)
+                        .addComponent(jRInscripNo))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(18, 18, 18)
+                            .addComponent(jcbSelecAlumno, javax.swing.GroupLayout.PREFERRED_SIZE, 420, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(jBInscribir)
+                            .addGap(58, 58, 58)
+                            .addComponent(jBAnular)))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING))
+                .addContainerGap(75, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 420, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(168, 168, 168))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(63, 63, 63)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(58, 58, 58)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jcbSelecAlumno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1))
-                .addGap(51, 51, 51)
+                .addGap(43, 43, 43)
                 .addComponent(jLabel2)
-                .addGap(51, 51, 51)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jRInscripNo)
-                    .addComponent(jRInscripSi))
-                .addGap(45, 45, 45)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(64, 64, 64)
+                    .addComponent(jRInscripSi)
+                    .addComponent(jRInscripNo))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(28, 28, 28)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jBInscribir)
-                    .addComponent(jBAnular)
-                    .addComponent(jBSalir))
-                .addContainerGap(75, Short.MAX_VALUE))
+                    .addComponent(jBAnular))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
+                .addComponent(jBSalir)
+                .addGap(25, 25, 25))
         );
 
         pack();
@@ -322,6 +326,7 @@ public class InscripcionVista extends javax.swing.JInternalFrame {
     private javax.swing.JButton jBSalir;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JRadioButton jRInscripNo;
     private javax.swing.JRadioButton jRInscripSi;
     private javax.swing.JScrollPane jScrollPane1;

@@ -7,7 +7,7 @@
         <Menu class="javax.swing.JMenu" name="GestionAlumnos">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\Pablo\Desktop\imagenProyecto\formulario alumno.png"/>
+              <Image iconType="3" name="/Imagenes/formulario alumno.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Alumno"/>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -34,7 +34,7 @@
         <Menu class="javax.swing.JMenu" name="jMenu2">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\Pablo\Desktop\imagenProyecto\form materias.png"/>
+              <Image iconType="3" name="/Imagenes/inscribir.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Materia"/>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -58,7 +58,7 @@
         <Menu class="javax.swing.JMenu" name="jMenu3">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\Pablo\Desktop\imagenProyecto\admin_person_user_man_2839.png"/>
+              <Image iconType="3" name="/Imagenes/Admin.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Administracion"/>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -93,7 +93,7 @@
         <Menu class="javax.swing.JMenu" name="jConsultaAlumMateria">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\Pablo\Desktop\imagenProyecto\consulta.png"/>
+              <Image iconType="3" name="/Imagenes/consulta.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Consultas"/>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -120,7 +120,7 @@
         <Menu class="javax.swing.JMenu" name="jMenu1">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\Pablo\Desktop\imagenProyecto\sign-emergency-code-sos_14_icon-icons.com_57231.png"/>
+              <Image iconType="3" name="/Imagenes/Salir.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Salir"/>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -187,7 +187,7 @@
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
-              <EmptySpace min="0" pref="613" max="32767" attributes="0"/>
+              <EmptySpace min="0" pref="599" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
       </Layout>
