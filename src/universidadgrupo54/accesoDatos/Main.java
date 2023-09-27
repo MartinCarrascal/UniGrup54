@@ -23,8 +23,21 @@ public class Main {
         MateriaData matD = new MateriaData();
         MateriaEntidades mat = new MateriaEntidades();
         
-        AlumnoEntidades marcelo = new AlumnoEntidades(2000, "Carozo", "Fabio", LocalDate.MIN.of(2003, Month.MARCH, 10), true);
+        AlumnoEntidades marcelo = new AlumnoEntidades(26, "Camian", "Fulanito", LocalDate.MIN.of(2001, Month.MARCH, 15), true);
+        AlumnoEntidades joni = new AlumnoEntidades(27, 3049858, "Sen", "Carlos", LocalDate.MIN.of(5, Month.MARCH, 10), true);
         
+        //AlumnoData
+        
+//        System.out.println(alud.buscarAlumno(9));
+//        System.out.println( alud.buscarAlumnoPorDni(2689789));
+//          for (AlumnoEntidades alu : alud.listarAlumnos()) {
+//                System.out.println(alu);
+//        }
+//          alud.guardarAlumno(marcelo);
+                
+//            alud.modificarAlumno(joni); 
+            alud.eliminarAlumno(9);
+                     
         
 //        System.out.println(insD.obtenerAlumnosPorMateria(1));
         
