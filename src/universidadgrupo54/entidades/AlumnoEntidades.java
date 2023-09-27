@@ -96,7 +96,33 @@ public class AlumnoEntidades {
 
     @Override
     public String toString() {
-        return dni + " - " + apellido + ", " + nombre;
+        return "Id Alumno: " + idAlumno + ", Nombre: " + nombre + ", Apellido: " + apellido;
+
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null) {
+            return false;
+        }
+        if (getClass() != o.getClass()) {
+            return false;
+        }
+        final AlumnoEntidades other = (AlumnoEntidades) o;
+        if (this.hashCode() != other.hashCode()) {
+            return false;
+        }
+        return true;  //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public int hashCode() {
+        return this.idAlumno;  //To change body of generated methods, choose Tools | Templates.
+    }
+    
+    
     
 }

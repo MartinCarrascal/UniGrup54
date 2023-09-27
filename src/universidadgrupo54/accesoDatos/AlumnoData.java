@@ -94,6 +94,7 @@ public class AlumnoData {
         } catch (SQLException e) {
             mensaje("Error al acceder a la tabla alumno" + e.getMessage());
         }
+        //System.out.println(alumno);
         return alumno;
     }
 
@@ -128,12 +129,14 @@ public class AlumnoData {
 
     public List<AlumnoEntidades> listarAlumnos() {
 
-        List<AlumnoEntidades> alumnos = new ArrayList<>();
+        ArrayList<AlumnoEntidades> alumnos = new ArrayList<>();
         String sql = "SELECT * FROM alumno WHERE estado = 1 ";
 
-        try (PreparedStatement ps = connection.prepareStatement(sql); ResultSet rs = ps.executeQuery()) {
+        try {
+            PreparedStatement ps = connection.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
             while (rs.next()) {
-                AlumnoEntidades alumno = new AlumnoEntidades();
+                AlumnoEntidades alumno = new AlumnoEntidades(); 
 
                 alumno.setIdAlumno(rs.getInt("idAlumno"));
                 alumno.setDni(rs.getInt("dni"));
@@ -141,8 +144,11 @@ public class AlumnoData {
                 alumno.setNombre(rs.getString("nombre"));
                 alumno.setFechaNacimiento(rs.getDate("fechaNacimiento").toLocalDate());
                 alumno.setEstado(rs.getBoolean("estado"));
+                //System.out.println(alumno);
                 alumnos.add(alumno);
             }
+            //System.out.println(alumnos);
+            ps.close(); 
 
         } catch (SQLException e) {
             mensaje("Error al acceder a la tabla alumno" + e.getMessage());
