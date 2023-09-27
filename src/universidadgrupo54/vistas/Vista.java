@@ -104,7 +104,7 @@ public class Vista extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu2);
 
-        jMenu3.setIcon(new javax.swing.ImageIcon("C:\\Users\\Enzo Torresi\\Desktop\\Iconos\\admin_person_user_man_2839.png")); // NOI18N
+        jMenu3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/admin_person_user_man_2839.png"))); // NOI18N
         jMenu3.setText("Administracion");
         jMenu3.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
 
@@ -151,13 +151,13 @@ public class Vista extends javax.swing.JFrame {
 
         jMenuBar1.add(jConsultaAlumMateria);
 
-        jMenu1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Enzo Torresi\\Desktop\\Iconos\\sign-emergency-code-sos_14_icon-icons.com_57231.png")); // NOI18N
+        jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/sign-emergency-code-sos_14_icon-icons.com_57231.png"))); // NOI18N
         jMenu1.setText("Salir");
         jMenu1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
 
         jCheckBoxMenuItem1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jCheckBoxMenuItem1.setText("Salir");
-        jCheckBoxMenuItem1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Enzo Torresi\\Desktop\\Iconos\\sign-emergency-code-sos_14_icon-icons.com_57231.png")); // NOI18N
+        jCheckBoxMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/sign-emergency-code-sos_14_icon-icons.com_57231.png"))); // NOI18N
         jCheckBoxMenuItem1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jCheckBoxMenuItem1ActionPerformed(evt);

@@ -64,7 +64,7 @@ public class ActualizacionNotasVista extends javax.swing.JInternalFrame {
         jButton1.setText("Guardar");
 
         jBSalir.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jBSalir.setIcon(new javax.swing.ImageIcon("C:\\Users\\Enzo Torresi\\Desktop\\Iconos\\sign-emergency-code-sos_14_icon-icons.com_57231.png")); // NOI18N
+        jBSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/sign-emergency-code-sos_14_icon-icons.com_57231.png"))); // NOI18N
         jBSalir.setText("Salir");
         jBSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

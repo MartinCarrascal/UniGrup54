@@ -90,7 +90,7 @@ public class ManejoDeInscripcion extends javax.swing.JInternalFrame {
             }
         });
 
-        jbsalir.setIcon(new javax.swing.ImageIcon("C:\\Users\\Enzo Torresi\\Desktop\\Iconos\\sign-emergency-code-sos_14_icon-icons.com_57231.png")); // NOI18N
+        jbsalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/sign-emergency-code-sos_14_icon-icons.com_57231.png"))); // NOI18N
         jbsalir.setText("Salir");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

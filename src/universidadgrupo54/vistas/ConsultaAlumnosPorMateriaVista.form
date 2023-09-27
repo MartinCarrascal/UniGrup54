@@ -103,7 +103,7 @@
           <Font name="Dialog" size="18" style="1"/>
         </Property>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\Enzo Torresi\Desktop\Iconos\sign-emergency-code-sos_14_icon-icons.com_57231.png"/>
+          <Image iconType="3" name="/Imagenes/sign-emergency-code-sos_14_icon-icons.com_57231.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Salida"/>
       </Properties>

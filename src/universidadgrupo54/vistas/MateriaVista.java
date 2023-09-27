@@ -88,7 +88,7 @@ public class MateriaVista extends javax.swing.JInternalFrame {
         jREstadoMat.setEnabled(false);
 
         jBNuevoMat.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jBNuevoMat.setIcon(new javax.swing.ImageIcon("C:\\Users\\Enzo Torresi\\Desktop\\Iconos\\new_add_insert_file_13948.png")); // NOI18N
+        jBNuevoMat.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/new_add_insert_file_13948.png"))); // NOI18N
         jBNuevoMat.setText("Nuevo");
         jBNuevoMat.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -97,7 +97,7 @@ public class MateriaVista extends javax.swing.JInternalFrame {
         });
 
         jBEliminarMat.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jBEliminarMat.setIcon(new javax.swing.ImageIcon("C:\\Users\\Enzo Torresi\\Desktop\\Iconos\\32officeicons-3_89720.png")); // NOI18N
+        jBEliminarMat.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/32officeicons-3_89720.png"))); // NOI18N
         jBEliminarMat.setText("Eliminar");
         jBEliminarMat.setEnabled(false);
         jBEliminarMat.addActionListener(new java.awt.event.ActionListener() {
@@ -117,7 +117,7 @@ public class MateriaVista extends javax.swing.JInternalFrame {
         });
 
         jBSalirMat.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jBSalirMat.setIcon(new javax.swing.ImageIcon("C:\\Users\\Enzo Torresi\\Desktop\\Iconos\\sign-emergency-code-sos_14_icon-icons.com_57231.png")); // NOI18N
+        jBSalirMat.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/sign-emergency-code-sos_14_icon-icons.com_57231.png"))); // NOI18N
         jBSalirMat.setText("Salir");
         jBSalirMat.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -170,7 +170,7 @@ public class MateriaVista extends javax.swing.JInternalFrame {
                                 .addGap(49, 49, 49)
                                 .addComponent(jBBuscarMat))
                             .addComponent(jTNombreMat))
-                        .addGap(0, 36, Short.MAX_VALUE))
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addComponent(jBGuardarMat)

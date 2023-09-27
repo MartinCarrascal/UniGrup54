@@ -58,7 +58,7 @@
                           </Group>
                           <Component id="jTNombreMat" max="32767" attributes="0"/>
                       </Group>
-                      <EmptySpace min="0" pref="36" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -201,7 +201,7 @@
           <Font name="Dialog" size="18" style="1"/>
         </Property>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\Enzo Torresi\Desktop\Iconos\new_add_insert_file_13948.png"/>
+          <Image iconType="3" name="/Imagenes/new_add_insert_file_13948.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Nuevo"/>
       </Properties>
@@ -215,7 +215,7 @@
           <Font name="Dialog" size="18" style="1"/>
         </Property>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\Enzo Torresi\Desktop\Iconos\32officeicons-3_89720.png"/>
+          <Image iconType="3" name="/Imagenes/32officeicons-3_89720.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Eliminar"/>
         <Property name="enabled" type="boolean" value="false"/>
@@ -245,7 +245,7 @@
           <Font name="Dialog" size="18" style="1"/>
         </Property>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\Enzo Torresi\Desktop\Iconos\sign-emergency-code-sos_14_icon-icons.com_57231.png"/>
+          <Image iconType="3" name="/Imagenes/sign-emergency-code-sos_14_icon-icons.com_57231.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Salir"/>
       </Properties>

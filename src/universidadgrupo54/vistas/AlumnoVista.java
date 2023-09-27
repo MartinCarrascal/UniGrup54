@@ -92,7 +92,7 @@ public class AlumnoVista extends javax.swing.JInternalFrame {
         jREstado.setEnabled(false);
 
         jbNuevo.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jbNuevo.setIcon(new javax.swing.ImageIcon("C:\\Users\\Enzo Torresi\\Desktop\\Iconos\\new_add_insert_file_13948.png")); // NOI18N
+        jbNuevo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/new_add_insert_file_13948.png"))); // NOI18N
         jbNuevo.setText("Nuevo");
         jbNuevo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -101,7 +101,7 @@ public class AlumnoVista extends javax.swing.JInternalFrame {
         });
 
         jBEliminar.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jBEliminar.setIcon(new javax.swing.ImageIcon("C:\\Users\\Enzo Torresi\\Desktop\\Iconos\\32officeicons-3_89720.png")); // NOI18N
+        jBEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/32officeicons-3_89720.png"))); // NOI18N
         jBEliminar.setText("Eliminar");
         jBEliminar.setEnabled(false);
         jBEliminar.addActionListener(new java.awt.event.ActionListener() {
@@ -121,7 +121,7 @@ public class AlumnoVista extends javax.swing.JInternalFrame {
         });
 
         jBSalir.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jBSalir.setIcon(new javax.swing.ImageIcon("C:\\Users\\Enzo Torresi\\Desktop\\Iconos\\sign-emergency-code-sos_14_icon-icons.com_57231.png")); // NOI18N
+        jBSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/sign-emergency-code-sos_14_icon-icons.com_57231.png"))); // NOI18N
         jBSalir.setText("Salir");
         jBSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
