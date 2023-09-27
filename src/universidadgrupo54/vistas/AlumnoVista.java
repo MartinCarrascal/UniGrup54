@@ -21,6 +21,7 @@ public class AlumnoVista extends javax.swing.JInternalFrame {
     private boolean esNuevo;
     AlumnoData aluD;
     AlumnoEntidades alum;
+    // borrar comentario
 
     public AlumnoVista() {
         initComponents();
